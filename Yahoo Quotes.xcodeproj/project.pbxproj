@@ -1,0 +1,643 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		800B1AD91CDC512B00EA1C3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AD81CDC512B00EA1C3D /* main.m */; };
+		800B1ADC1CDC512B00EA1C3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */; };
+		800B1AE21CDC512B00EA1C3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800B1AE01CDC512B00EA1C3D /* Main.storyboard */; };
+		800B1AE41CDC512B00EA1C3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800B1AE31CDC512B00EA1C3D /* Assets.xcassets */; };
+		800B1AE71CDC512B00EA1C3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */; };
+		800B1AF21CDC512B00EA1C3D /* Yahoo_QuotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */; };
+		800B1AFD1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */; };
+		800B1B111CDC53FD00EA1C3D /* quotes_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */; };
+		800B1B121CDC53FD00EA1C3D /* quotes_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */; };
+		800B1B1A1CDC88F600EA1C3D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B141CDC88F500EA1C3D /* Makefile */; };
+		800B1B1B1CDC88F600EA1C3D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B161CDC88F500EA1C3D /* Info.plist */; };
+		800B1B1C1CDC88F600EA1C3D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B191CDC88F600EA1C3D /* SRWebSocket.m */; };
+		800B1B1E1CDC896C00EA1C3D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 800B1B1D1CDC896C00EA1C3D /* libicucore.tbd */; };
+		800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800B1B1F1CDC897600EA1C3D /* CFNetwork.framework */; };
+		800B1B221CDC897C00EA1C3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800B1B211CDC897C00EA1C3D /* Security.framework */; };
+		800B1B241CDC898100EA1C3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800B1B231CDC898100EA1C3D /* Foundation.framework */; };
+		800B1B2A1CDC8A4300EA1C3D /* VertxConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B291CDC8A4300EA1C3D /* VertxConnectionManager.m */; };
+		800B1B2D1CDCAF4C00EA1C3D /* stockData.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B2C1CDCAF4C00EA1C3D /* stockData.m */; };
+		800B1B301CDCB29000EA1C3D /* QuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */; };
+		800B1B351CDCB3C100EA1C3D /* topbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B311CDCB3C100EA1C3D /* topbar_bg@2x.png */; };
+		800B1B361CDCB3C100EA1C3D /* topbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B321CDCB3C100EA1C3D /* topbar_bg.png */; };
+		800B1B371CDCB3C100EA1C3D /* topbar_bg_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B331CDCB3C100EA1C3D /* topbar_bg_selected.png */; };
+		800B1B381CDCB3C100EA1C3D /* topbar_bg_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B341CDCB3C100EA1C3D /* topbar_bg_selected@2x.png */; };
+		800B1B3B1CDCB4CD00EA1C3D /* TableHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B391CDCB4CD00EA1C3D /* TableHeader.png */; };
+		800B1B3C1CDCB4CD00EA1C3D /* TableHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B3A1CDCB4CD00EA1C3D /* TableHeader@2x.png */; };
+		800B1B411CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B3D1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png */; };
+		800B1B421CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B3E1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png */; };
+		800B1B431CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */; };
+		800B1B441CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */; };
+		800B1B471CDCBAFF00EA1C3D /* stockTableDataViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		800B1AEE1CDC512B00EA1C3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 800B1ACC1CDC512B00EA1C3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800B1AD31CDC512B00EA1C3D;
+			remoteInfo = "Yahoo Quotes";
+		};
+		800B1AF91CDC512B00EA1C3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 800B1ACC1CDC512B00EA1C3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800B1AD31CDC512B00EA1C3D;
+			remoteInfo = "Yahoo Quotes";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yahoo Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AD81CDC512B00EA1C3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		800B1AE11CDC512B00EA1C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		800B1AE31CDC512B00EA1C3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		800B1AE61CDC512B00EA1C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		800B1AE81CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yahoo QuotesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Yahoo_QuotesTests.m; sourceTree = "<group>"; };
+		800B1AF31CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yahoo QuotesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Yahoo_QuotesUITests.m; sourceTree = "<group>"; };
+		800B1AFE1CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quotes_disable.png; sourceTree = "<group>"; };
+		800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes_disable@2x.png"; sourceTree = "<group>"; };
+		800B1B141CDC88F500EA1C3D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		800B1B161CDC88F500EA1C3D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800B1B171CDC88F600EA1C3D /* SocketRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocket.h; sourceTree = "<group>"; };
+		800B1B181CDC88F600EA1C3D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		800B1B191CDC88F600EA1C3D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		800B1B1D1CDC896C00EA1C3D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		800B1B1F1CDC897600EA1C3D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		800B1B211CDC897C00EA1C3D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		800B1B231CDC898100EA1C3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		800B1B281CDC8A4300EA1C3D /* VertxConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertxConnectionManager.h; sourceTree = "<group>"; };
+		800B1B291CDC8A4300EA1C3D /* VertxConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VertxConnectionManager.m; sourceTree = "<group>"; };
+		800B1B2B1CDCAF4C00EA1C3D /* stockData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stockData.h; sourceTree = "<group>"; };
+		800B1B2C1CDCAF4C00EA1C3D /* stockData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stockData.m; sourceTree = "<group>"; };
+		800B1B2E1CDCB29000EA1C3D /* QuoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteViewController.h; sourceTree = "<group>"; };
+		800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteViewController.m; sourceTree = "<group>"; };
+		800B1B311CDCB3C100EA1C3D /* topbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "topbar_bg@2x.png"; path = "../../../Desktop/topbar_bg@2x.png"; sourceTree = "<group>"; };
+		800B1B321CDCB3C100EA1C3D /* topbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = topbar_bg.png; path = ../../../Desktop/topbar_bg.png; sourceTree = "<group>"; };
+		800B1B331CDCB3C100EA1C3D /* topbar_bg_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = topbar_bg_selected.png; path = ../../../Desktop/topbar_bg_selected.png; sourceTree = "<group>"; };
+		800B1B341CDCB3C100EA1C3D /* topbar_bg_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "topbar_bg_selected@2x.png"; path = "../../../Desktop/topbar_bg_selected@2x.png"; sourceTree = "<group>"; };
+		800B1B391CDCB4CD00EA1C3D /* TableHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TableHeader.png; path = ../../../Desktop/TableHeader.png; sourceTree = "<group>"; };
+		800B1B3A1CDCB4CD00EA1C3D /* TableHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TableHeader@2x.png"; path = "../../../Desktop/TableHeader@2x.png"; sourceTree = "<group>"; };
+		800B1B3D1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ButtonChg_Grn70x30.png; path = ../../../Desktop/ButtonChg_Grn70x30.png; sourceTree = "<group>"; };
+		800B1B3E1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ButtonChg_Grn70x30@2x.png"; path = "../../../Desktop/ButtonChg_Grn70x30@2x.png"; sourceTree = "<group>"; };
+		800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ButtonChg_Red70x30.png; path = ../../../Desktop/ButtonChg_Red70x30.png; sourceTree = "<group>"; };
+		800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ButtonChg_Red70x30@2x.png"; path = "../../../Desktop/ButtonChg_Red70x30@2x.png"; sourceTree = "<group>"; };
+		800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stockTableDataViewCell.h; sourceTree = "<group>"; };
+		800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stockTableDataViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		800B1AD11CDC512B00EA1C3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800B1B241CDC898100EA1C3D /* Foundation.framework in Frameworks */,
+				800B1B221CDC897C00EA1C3D /* Security.framework in Frameworks */,
+				800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */,
+				800B1B1E1CDC896C00EA1C3D /* libicucore.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AEA1CDC512B00EA1C3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AF51CDC512B00EA1C3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		800B1ACB1CDC512B00EA1C3D = {
+			isa = PBXGroup;
+			children = (
+				800B1AD61CDC512B00EA1C3D /* Yahoo Quotes */,
+				800B1AF01CDC512B00EA1C3D /* Yahoo QuotesTests */,
+				800B1AFB1CDC512B00EA1C3D /* Yahoo QuotesUITests */,
+				800B1AD51CDC512B00EA1C3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		800B1AD51CDC512B00EA1C3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */,
+				800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */,
+				800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		800B1AD61CDC512B00EA1C3D /* Yahoo Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */,
+				800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */,
+				800B1B281CDC8A4300EA1C3D /* VertxConnectionManager.h */,
+				800B1B291CDC8A4300EA1C3D /* VertxConnectionManager.m */,
+				800B1B2B1CDCAF4C00EA1C3D /* stockData.h */,
+				800B1B2C1CDCAF4C00EA1C3D /* stockData.m */,
+				800B1AE01CDC512B00EA1C3D /* Main.storyboard */,
+				800B1B2E1CDCB29000EA1C3D /* QuoteViewController.h */,
+				800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */,
+				800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */,
+				800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */,
+				800B1AE31CDC512B00EA1C3D /* Assets.xcassets */,
+				800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */,
+				800B1B131CDC88F500EA1C3D /* SocketRocket */,
+				800B1AE81CDC512B00EA1C3D /* Info.plist */,
+				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
+			);
+			path = "Yahoo Quotes";
+			sourceTree = "<group>";
+		};
+		800B1AD71CDC512B00EA1C3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B0A1CDC532F00EA1C3D /* Images */,
+				800B1AD81CDC512B00EA1C3D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		800B1AF01CDC512B00EA1C3D /* Yahoo QuotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */,
+				800B1AF31CDC512B00EA1C3D /* Info.plist */,
+			);
+			path = "Yahoo QuotesTests";
+			sourceTree = "<group>";
+		};
+		800B1AFB1CDC512B00EA1C3D /* Yahoo QuotesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */,
+				800B1AFE1CDC512B00EA1C3D /* Info.plist */,
+			);
+			path = "Yahoo QuotesUITests";
+			sourceTree = "<group>";
+		};
+		800B1B0A1CDC532F00EA1C3D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B3D1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png */,
+				800B1B3E1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png */,
+				800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */,
+				800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */,
+				800B1B311CDCB3C100EA1C3D /* topbar_bg@2x.png */,
+				800B1B391CDCB4CD00EA1C3D /* TableHeader.png */,
+				800B1B3A1CDCB4CD00EA1C3D /* TableHeader@2x.png */,
+				800B1B321CDCB3C100EA1C3D /* topbar_bg.png */,
+				800B1B331CDCB3C100EA1C3D /* topbar_bg_selected.png */,
+				800B1B341CDCB3C100EA1C3D /* topbar_bg_selected@2x.png */,
+				800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */,
+				800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		800B1B131CDC88F500EA1C3D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B141CDC88F500EA1C3D /* Makefile */,
+				800B1B151CDC88F500EA1C3D /* Resources */,
+				800B1B171CDC88F600EA1C3D /* SocketRocket.h */,
+				800B1B181CDC88F600EA1C3D /* SRWebSocket.h */,
+				800B1B191CDC88F600EA1C3D /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		800B1B151CDC88F500EA1C3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B231CDC898100EA1C3D /* Foundation.framework */,
+				800B1B211CDC897C00EA1C3D /* Security.framework */,
+				800B1B1F1CDC897600EA1C3D /* CFNetwork.framework */,
+				800B1B1D1CDC896C00EA1C3D /* libicucore.tbd */,
+				800B1B161CDC88F500EA1C3D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo Quotes" */;
+			buildPhases = (
+				800B1AD01CDC512B00EA1C3D /* Sources */,
+				800B1AD11CDC512B00EA1C3D /* Frameworks */,
+				800B1AD21CDC512B00EA1C3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Yahoo Quotes";
+			productName = "Yahoo Quotes";
+			productReference = 800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		800B1AEC1CDC512B00EA1C3D /* Yahoo QuotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesTests" */;
+			buildPhases = (
+				800B1AE91CDC512B00EA1C3D /* Sources */,
+				800B1AEA1CDC512B00EA1C3D /* Frameworks */,
+				800B1AEB1CDC512B00EA1C3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				800B1AEF1CDC512B00EA1C3D /* PBXTargetDependency */,
+			);
+			name = "Yahoo QuotesTests";
+			productName = "Yahoo QuotesTests";
+			productReference = 800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		800B1AF71CDC512B00EA1C3D /* Yahoo QuotesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesUITests" */;
+			buildPhases = (
+				800B1AF41CDC512B00EA1C3D /* Sources */,
+				800B1AF51CDC512B00EA1C3D /* Frameworks */,
+				800B1AF61CDC512B00EA1C3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				800B1AFA1CDC512B00EA1C3D /* PBXTargetDependency */,
+			);
+			name = "Yahoo QuotesUITests";
+			productName = "Yahoo QuotesUITests";
+			productReference = 800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		800B1ACC1CDC512B00EA1C3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Sri Ram";
+				TargetAttributes = {
+					800B1AD31CDC512B00EA1C3D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					800B1AEC1CDC512B00EA1C3D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 800B1AD31CDC512B00EA1C3D;
+					};
+					800B1AF71CDC512B00EA1C3D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 800B1AD31CDC512B00EA1C3D;
+					};
+				};
+			};
+			buildConfigurationList = 800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Yahoo Quotes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 800B1ACB1CDC512B00EA1C3D;
+			productRefGroup = 800B1AD51CDC512B00EA1C3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */,
+				800B1AEC1CDC512B00EA1C3D /* Yahoo QuotesTests */,
+				800B1AF71CDC512B00EA1C3D /* Yahoo QuotesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		800B1AD21CDC512B00EA1C3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800B1B441CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png in Resources */,
+				800B1B411CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png in Resources */,
+				800B1B3C1CDCB4CD00EA1C3D /* TableHeader@2x.png in Resources */,
+				800B1B361CDCB3C100EA1C3D /* topbar_bg.png in Resources */,
+				800B1AE71CDC512B00EA1C3D /* LaunchScreen.storyboard in Resources */,
+				800B1B381CDCB3C100EA1C3D /* topbar_bg_selected@2x.png in Resources */,
+				800B1B121CDC53FD00EA1C3D /* quotes_disable@2x.png in Resources */,
+				800B1B1B1CDC88F600EA1C3D /* Info.plist in Resources */,
+				800B1B111CDC53FD00EA1C3D /* quotes_disable.png in Resources */,
+				800B1B431CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png in Resources */,
+				800B1B351CDCB3C100EA1C3D /* topbar_bg@2x.png in Resources */,
+				800B1AE41CDC512B00EA1C3D /* Assets.xcassets in Resources */,
+				800B1B421CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png in Resources */,
+				800B1AE21CDC512B00EA1C3D /* Main.storyboard in Resources */,
+				800B1B3B1CDCB4CD00EA1C3D /* TableHeader.png in Resources */,
+				800B1B371CDCB3C100EA1C3D /* topbar_bg_selected.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AEB1CDC512B00EA1C3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AF61CDC512B00EA1C3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		800B1AD01CDC512B00EA1C3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800B1ADC1CDC512B00EA1C3D /* AppDelegate.m in Sources */,
+				800B1B1C1CDC88F600EA1C3D /* SRWebSocket.m in Sources */,
+				800B1B2A1CDC8A4300EA1C3D /* VertxConnectionManager.m in Sources */,
+				800B1B2D1CDCAF4C00EA1C3D /* stockData.m in Sources */,
+				800B1B471CDCBAFF00EA1C3D /* stockTableDataViewCell.m in Sources */,
+				800B1B1A1CDC88F600EA1C3D /* Makefile in Sources */,
+				800B1B301CDCB29000EA1C3D /* QuoteViewController.m in Sources */,
+				800B1AD91CDC512B00EA1C3D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AE91CDC512B00EA1C3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800B1AF21CDC512B00EA1C3D /* Yahoo_QuotesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800B1AF41CDC512B00EA1C3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800B1AFD1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		800B1AEF1CDC512B00EA1C3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */;
+			targetProxy = 800B1AEE1CDC512B00EA1C3D /* PBXContainerItemProxy */;
+		};
+		800B1AFA1CDC512B00EA1C3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */;
+			targetProxy = 800B1AF91CDC512B00EA1C3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		800B1AE01CDC512B00EA1C3D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				800B1AE11CDC512B00EA1C3D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				800B1AE61CDC512B00EA1C3D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		800B1AFF1CDC512B00EA1C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		800B1B001CDC512B00EA1C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		800B1B021CDC512B00EA1C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		800B1B031CDC512B00EA1C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		800B1B051CDC512B00EA1C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahoo Quotes.app/Yahoo Quotes";
+			};
+			name = Debug;
+		};
+		800B1B061CDC512B00EA1C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahoo Quotes.app/Yahoo Quotes";
+			};
+			name = Release;
+		};
+		800B1B081CDC512B00EA1C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Yahoo Quotes";
+			};
+			name = Debug;
+		};
+		800B1B091CDC512B00EA1C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Yahoo Quotes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Yahoo Quotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800B1AFF1CDC512B00EA1C3D /* Debug */,
+				800B1B001CDC512B00EA1C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo Quotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800B1B021CDC512B00EA1C3D /* Debug */,
+				800B1B031CDC512B00EA1C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800B1B051CDC512B00EA1C3D /* Debug */,
+				800B1B061CDC512B00EA1C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800B1B081CDC512B00EA1C3D /* Debug */,
+				800B1B091CDC512B00EA1C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 800B1ACC1CDC512B00EA1C3D /* Project object */;
+}
