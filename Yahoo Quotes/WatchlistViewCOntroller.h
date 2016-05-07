@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "stockTableDataViewCell.h"
 
-@interface WatchlistViewCOntroller : UIViewController
+@interface WatchlistViewCOntroller : UIViewController<stockTableDataViewCellDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @end

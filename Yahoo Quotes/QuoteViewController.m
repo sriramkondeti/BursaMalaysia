@@ -54,6 +54,13 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    selectedRow = -1;
+    [super viewWillAppear:animated];
+    [_tableView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
 {

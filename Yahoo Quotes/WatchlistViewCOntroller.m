@@ -29,6 +29,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    selectedRow = -1;
     localwatchListarr = [[stockData singleton]watchListStkCodeArr];
     [_tableview reloadData];
 
@@ -81,7 +82,9 @@
     
     cell.lblStkName.text =[temp objectForKey:@"38"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    cell.delegate = self;
+    cell.stkCode = [temp objectForKey:@"33"];
+    [cell.btnWatchlist setTitle:@"Remove" forState:UIControlStateNormal];
     value = [temp objectForKey:@"98"] ;
     cell.lblPrice.text =  [priceFormatter stringFromNumber:value];
     float diffval = [[temp objectForKey:@"98"] floatValue] -[[temp objectForKey:@"51"]floatValue];
@@ -141,6 +144,36 @@
     // Explictly set your cell's layout margins
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+-(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
+{
+    if ([[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
+        
+        [[[stockData singleton]watchListStkCodeArr]removeObject:cell.stkCode];
+        
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Watchlist"
+                                      message:[NSString stringWithFormat:@"%@ has been Removed from Watchlist.", cell.lblStkName.text]
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okbtn = [UIAlertAction
+                                actionWithTitle:@"Done"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    
+                                    
+                                    
+                                }];
+        
+        
+        [alert addAction:okbtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        localwatchListarr = [[stockData singleton]watchListStkCodeArr];
+        [_tableview reloadData];
     }
 }
 
