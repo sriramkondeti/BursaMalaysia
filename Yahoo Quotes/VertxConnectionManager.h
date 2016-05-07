@@ -18,9 +18,8 @@
 - (void)getLosers;
 - (void)getActive;
 - (void)vertxSearch : (NSString *)str;
-- (void)vertxSearchStkCode : (NSString *)str;
-
-
+- (void) getRemoteWatchlistArray;
+- (void) getWatchlistDetails;
 
 @property(nonatomic,retain)SRWebSocket *webSocket;
 + (VertxConnectionManager *)singleton;

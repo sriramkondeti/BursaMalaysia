@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "VertxConnectionManager.h"
-
+#import <Parse/Parse.h>
+#import "stockData.h"
+#import "VertxConnectionManager.h"
 
 @interface AppDelegate ()
 {
@@ -24,7 +26,9 @@
     // Override point for customization after application launch.
     vcm = [VertxConnectionManager singleton];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:255.0f/255.0f green:35.0f/255.0f blue:26.0f/255.0f alpha:1.000]];
-    
+    [Parse setApplicationId:@"6vR2BlU29Y9BRdzZKM8iKGZnRpc8hQIREERQ3nOv"
+                  clientKey:@"6ssE0k34QQCbcyshFyvXjWv9WvmJMM5sXJ1KU6ph"];
+
     //Navigation Bar - Title Color and Font Size
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:18.0f], NSFontAttributeName, nil]];
     //Navigation Bar - BarButtonItem Color
@@ -47,6 +51,12 @@
                                                        [UIColor whiteColor], NSForegroundColorAttributeName,
                                                        [UIFont fontWithName:@"Helvetica-Bold" size:14.0f], NSFontAttributeName,
                                                        nil] forState:UIControlStateSelected];
+    
+    
+ 
+    [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+     
+   
     
 
     return YES;

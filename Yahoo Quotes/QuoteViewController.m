@@ -9,6 +9,8 @@
 #import "QuoteViewController.h"
 #import "stockTableDataViewCell.h"
 #import "stockData.h"
+#import <Parse/Parse.h>
+#import "VertxConnectionManager.h"
 
 
 @implementation QuoteViewController
@@ -40,6 +42,8 @@
     selectedRow = -1;
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"quotes_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -227,6 +231,9 @@
 
     NSLog(@"Quotes %@", cell.stkCode);
     [[[stockData singleton]watchListStkCodeArr]addObject:cell.stkCode];
+        PFObject *sendObject = [PFObject objectWithClassName:@"Watchlist"];
+        sendObject[@"Stockcode"] = cell.stkCode;
+        [sendObject saveInBackground];
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
@@ -247,6 +254,8 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
+        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+
         [_tableView reloadData];
     }
 }

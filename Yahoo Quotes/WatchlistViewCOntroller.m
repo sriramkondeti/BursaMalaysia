@@ -9,7 +9,8 @@
 #import "WatchlistViewCOntroller.h"
 #import "stockData.h"
 #import "stockTableDataViewCell.h"
-
+#import <Parse/Parse.h>
+#import "VertxConnectionManager.h"
 @implementation WatchlistViewCOntroller
 {
     NSMutableArray *localwatchListarr;
@@ -21,8 +22,10 @@
 {
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"watchlist_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    localwatchListarr = [[stockData singleton]watchListStkCodeArr];
     selectedRow = -1;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveStockDetails) name:@"didReceiveStockDetails" object:nil];
+    [[VertxConnectionManager singleton]getWatchlistDetails];
+
 
 }
 
@@ -30,7 +33,6 @@
 {
     [super viewWillAppear:animated];
     selectedRow = -1;
-    localwatchListarr = [[stockData singleton]watchListStkCodeArr];
     [_tableview reloadData];
 
 }
@@ -149,9 +151,13 @@
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
 {
-    if ([[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
+    if ([localwatchListarr containsObject:cell.stkCode]) {
         
-        [[[stockData singleton]watchListStkCodeArr]removeObject:cell.stkCode];
+     
+
+        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
+                                                           objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
+        [object deleteInBackground];
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
@@ -172,9 +178,15 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
-        localwatchListarr = [[stockData singleton]watchListStkCodeArr];
-        [_tableview reloadData];
+        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
     }
 }
+
+-(void)didReceiveStockDetails
+{
+    localwatchListarr = [stockData singleton].remoteWatchlistStkCodeArr;
+    [_tableview reloadData];
+}
+
 
 @end

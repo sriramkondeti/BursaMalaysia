@@ -8,6 +8,7 @@
 
 #import "VertxConnectionManager.h"
 #import "stockData.h"
+#import <Parse/Parse.h>
 
 
 @interface VertxConnectionManager()
@@ -92,6 +93,29 @@
     
 }
 
+-(void)getRemoteWatchlistArray
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+        [stockData singleton].remoteWatchlistid = [NSMutableArray array];
+        if (!error)
+        {
+            
+            for (PFObject *obj in objects)
+            {
+                [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
+                [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
+                NSLog(@"%@", [[stockData singleton]remoteWatchlistid]);
+
+            }
+
+            [self getWatchlistDetails];
+        }
+    }
+      ];
+}
+
 - (void)getGainers{
     _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"change\", \"direction\" : \"DESC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getGainers\" }"];
     
@@ -111,6 +135,38 @@
     _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"101\", \"direction\" : \"DESC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getActive\" }"];
     
     [_webSocket send:_msg];
+}
+
+-(void)getWatchlistDetails
+{
+    
+    
+    NSArray *collumnArr = [NSArray arrayWithObjects:@"38",@"33",@"98",@"51", nil];
+    NSMutableDictionary *sendMessage = [[NSMutableDictionary alloc]init];
+    [sendMessage setObject:@"query" forKey:@"action"];
+    [sendMessage setObject:@[@"05"] forKey:@"coll"];
+    
+    [sendMessage setObject:collumnArr forKey:@"column"];
+    
+    NSMutableArray *filterArr = [[NSMutableArray alloc]init];
+    NSMutableDictionary *filterDict = [[NSMutableDictionary alloc]init];
+    [filterDict setObject:@"38" forKey:@"field"];
+    [filterDict setObject:@"ne" forKey:@"comparison"];
+    [filterDict setObject:@"" forKey:@"value"];
+    [filterArr addObject:[filterDict copy]];
+    
+    [filterDict setObject:@"33" forKey:@"field"];
+    [filterDict setObject:@"in" forKey:@"comparison"];
+    [filterDict setObject:[[stockData singleton]remoteWatchlistStkCodeArr] forKey:@"value"];
+    [filterArr addObject:[filterDict copy]];
+    
+    [sendMessage setObject:filterArr forKey:@"filter"];
+     [sendMessage setObject:@"vertxGetDetails" forKey:@"eventId"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:sendMessage
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    [_webSocket send:jsonData];
+
 }
 
 
@@ -135,7 +191,6 @@
     incomingMessage = [ parsedObject objectForKey:@"message"];
     incomingHasNext = [[parsedObject objectForKey:@"hasNext"]boolValue];
     incomingEnd     = [[parsedObject objectForKey:@"end"]boolValue];
-    NSLog(@"%@", parsedObject);
     
     
     if([incomingType isEqualToString:@"q"])
@@ -235,6 +290,26 @@
             NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
             if ([responseDict count]>0)
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"doneVertxSearch" object:self userInfo:notificationData];
+            responseDict = nil;
+            incomingHasNext = false;
+            keepQid = nil;
+            return;
+        }
+        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]initWithDictionary:[parsedObject objectForKey:@"data"]];
+        [[[stockData singleton]qcFeedDataDict] setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
+        [responseDict setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
+        tempDict = nil;
+    }
+            
+    else if ([keepQid isEqualToString:@"vertxGetDetails"])
+    {
+        if(!responseDict)
+            responseDict = [NSMutableDictionary dictionary];
+        if(incomingEnd)
+        {
+            NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
+            if ([responseDict count]>0)
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"didReceiveStockDetails" object:self userInfo:notificationData];
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;
