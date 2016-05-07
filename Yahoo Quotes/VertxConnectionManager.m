@@ -23,6 +23,7 @@
     NSString *keepQid;
     NSMutableDictionary *responseDict; // Use for NSNotification Center.
     NSMutableArray *sortedresults;
+    NSString *SearchString;
 
 
 }
@@ -111,6 +112,18 @@
     
     [_webSocket send:_msg];
 }
+
+
+- (void)vertxSearch : (NSString *)str
+{
+    
+ 
+    
+    _msg = [NSString stringWithFormat:@"{\"action\":\"query\",\"coll\":[\"05\"],\"start\":0,\"limit\":22,\"column\":[\"38\",\"36\",\"98\",\"48\",\"51\",\"134\",\"135\",\"50\",\"40\",\"35\",\"39\",\"139\",\"103\",\"238\",\"56\",\"57\",\"101\",\"153\",\"156\",\"49\",\"245\",\"140\",\"141\",\"142\",\"244\",\"243\",\"55\",\"52\",\"104\",\"99\",\"132\",\"54\",\"102\",\"41\",\"buyRate\",\"33\",\"58\",\"68\",\"78\",\"88\",\"change\",\"changePer\",\"170\",\"171\",\"172\",\"173\",\"174\",\"58\",\"59\",\"60\",\"61\",\"62\",\"68\",\"69\",\"70\",\"71\",\"72\",\"88\",\"89\",\"90\",\"91\",\"92\",\"78\",\"79\",\"80\",\"81\",\"82\",\"180\",\"181\",\"182\",\"183\",\"184\"],\"filter\":[{\"field\":\"38\",\"value\":\"\",\"type\":\"string\",\"comparison\":\"ne\"},{\"field\":\"131\",\"value\":[\"MY\",\"KL\",\"JKD\",\"SID\",\"BKD\",\"OD\",\"ND\",\"AD\",\"HKD\"],\"comparison\":\"in\"},{\"field\":\"path\",\"value\":\"|10|\"},{\"field\":\"38\",\"value\":\"(?i:^%@[\\\\s\\\\S]*)\",\"type\":\"string\",\"comparison\":\"regex\"}],\"sort\":[{\"property\":\"stkCode\",\"direction\":\"ASC\"}],\"eventId\":\"vertxSearch\"}",str];
+    
+    [_webSocket send:_msg];
+}
+
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
@@ -210,6 +223,26 @@
         NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]initWithDictionary:[parsedObject objectForKey:@"data"]];
         [[[stockData singleton]qcFeedDataDict] setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]]; //For QCDataCenter
         [[[stockData singleton]getActiveStkCodeArr] addObject:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
+        tempDict = nil;
+    }
+            
+    else if ([keepQid isEqualToString:@"vertxSearch"])
+    {
+        if(!responseDict)
+            responseDict = [NSMutableDictionary dictionary];
+        if(incomingEnd)
+        {
+            NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
+            if ([responseDict count]>0)
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"doneVertxSearch" object:self userInfo:notificationData];
+            responseDict = nil;
+            incomingHasNext = false;
+            keepQid = nil;
+            return;
+        }
+        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]initWithDictionary:[parsedObject objectForKey:@"data"]];
+        [[[stockData singleton]qcFeedDataDict] setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
+        [responseDict setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
         tempDict = nil;
     }
     }

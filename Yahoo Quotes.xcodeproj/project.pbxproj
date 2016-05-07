@@ -14,8 +14,6 @@
 		800B1AE71CDC512B00EA1C3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */; };
 		800B1AF21CDC512B00EA1C3D /* Yahoo_QuotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */; };
 		800B1AFD1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */; };
-		800B1B111CDC53FD00EA1C3D /* quotes_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */; };
-		800B1B121CDC53FD00EA1C3D /* quotes_disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */; };
 		800B1B1A1CDC88F600EA1C3D /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B141CDC88F500EA1C3D /* Makefile */; };
 		800B1B1B1CDC88F600EA1C3D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B161CDC88F500EA1C3D /* Info.plist */; };
 		800B1B1C1CDC88F600EA1C3D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B191CDC88F600EA1C3D /* SRWebSocket.m */; };
@@ -37,6 +35,12 @@
 		800B1B431CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */; };
 		800B1B441CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */; };
 		800B1B471CDCBAFF00EA1C3D /* stockTableDataViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */; };
+		80A27A061CDD05B000002F9F /* SearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */; };
+		80CEB5841CDD9196003F6368 /* quotes_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5821CDD9196003F6368 /* quotes_enable.png */; };
+		80CEB5851CDD9196003F6368 /* quotes_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */; };
+		80CEB5881CDD91CD003F6368 /* watchlist_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5861CDD91CD003F6368 /* watchlist_enable.png */; };
+		80CEB5891CDD91CD003F6368 /* watchlist_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */; };
+		80CEB58C1CDD9964003F6368 /* WatchlistViewCOntroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +75,6 @@
 		800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yahoo QuotesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Yahoo_QuotesUITests.m; sourceTree = "<group>"; };
 		800B1AFE1CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quotes_disable.png; sourceTree = "<group>"; };
-		800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes_disable@2x.png"; sourceTree = "<group>"; };
 		800B1B141CDC88F500EA1C3D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		800B1B161CDC88F500EA1C3D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		800B1B171CDC88F600EA1C3D /* SocketRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocket.h; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 		800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ButtonChg_Red70x30@2x.png"; path = "../../../Desktop/ButtonChg_Red70x30@2x.png"; sourceTree = "<group>"; };
 		800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stockTableDataViewCell.h; sourceTree = "<group>"; };
 		800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stockTableDataViewCell.m; sourceTree = "<group>"; };
+		80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayViewController.h; sourceTree = "<group>"; };
+		80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayViewController.m; sourceTree = "<group>"; };
+		80CEB5821CDD9196003F6368 /* quotes_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quotes_enable.png; sourceTree = "<group>"; };
+		80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes_enable@2x.png"; sourceTree = "<group>"; };
+		80CEB5861CDD91CD003F6368 /* watchlist_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchlist_enable.png; sourceTree = "<group>"; };
+		80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchlist_enable@2x.png"; sourceTree = "<group>"; };
+		80CEB58A1CDD9964003F6368 /* WatchlistViewCOntroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewCOntroller.h; sourceTree = "<group>"; };
+		80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewCOntroller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +171,10 @@
 				800B1B2B1CDCAF4C00EA1C3D /* stockData.h */,
 				800B1B2C1CDCAF4C00EA1C3D /* stockData.m */,
 				800B1AE01CDC512B00EA1C3D /* Main.storyboard */,
+				80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */,
+				80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */,
+				80CEB58A1CDD9964003F6368 /* WatchlistViewCOntroller.h */,
+				80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */,
 				800B1B2E1CDCB29000EA1C3D /* QuoteViewController.h */,
 				800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */,
 				800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */,
@@ -208,14 +222,16 @@
 				800B1B3E1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png */,
 				800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */,
 				800B1B401CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png */,
+				80CEB5861CDD91CD003F6368 /* watchlist_enable.png */,
+				80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */,
 				800B1B311CDCB3C100EA1C3D /* topbar_bg@2x.png */,
+				80CEB5821CDD9196003F6368 /* quotes_enable.png */,
+				80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */,
 				800B1B391CDCB4CD00EA1C3D /* TableHeader.png */,
 				800B1B3A1CDCB4CD00EA1C3D /* TableHeader@2x.png */,
 				800B1B321CDCB3C100EA1C3D /* topbar_bg.png */,
 				800B1B331CDCB3C100EA1C3D /* topbar_bg_selected.png */,
 				800B1B341CDCB3C100EA1C3D /* topbar_bg_selected@2x.png */,
-				800B1B0F1CDC53FD00EA1C3D /* quotes_disable.png */,
-				800B1B101CDC53FD00EA1C3D /* quotes_disable@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -347,15 +363,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CEB5851CDD9196003F6368 /* quotes_enable@2x.png in Resources */,
 				800B1B441CDCB9FC00EA1C3D /* ButtonChg_Red70x30@2x.png in Resources */,
 				800B1B411CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png in Resources */,
 				800B1B3C1CDCB4CD00EA1C3D /* TableHeader@2x.png in Resources */,
+				80CEB5841CDD9196003F6368 /* quotes_enable.png in Resources */,
 				800B1B361CDCB3C100EA1C3D /* topbar_bg.png in Resources */,
+				80CEB5891CDD91CD003F6368 /* watchlist_enable@2x.png in Resources */,
 				800B1AE71CDC512B00EA1C3D /* LaunchScreen.storyboard in Resources */,
+				80CEB5881CDD91CD003F6368 /* watchlist_enable.png in Resources */,
 				800B1B381CDCB3C100EA1C3D /* topbar_bg_selected@2x.png in Resources */,
-				800B1B121CDC53FD00EA1C3D /* quotes_disable@2x.png in Resources */,
 				800B1B1B1CDC88F600EA1C3D /* Info.plist in Resources */,
-				800B1B111CDC53FD00EA1C3D /* quotes_disable.png in Resources */,
 				800B1B431CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png in Resources */,
 				800B1B351CDCB3C100EA1C3D /* topbar_bg@2x.png in Resources */,
 				800B1AE41CDC512B00EA1C3D /* Assets.xcassets in Resources */,
@@ -390,8 +408,10 @@
 				800B1ADC1CDC512B00EA1C3D /* AppDelegate.m in Sources */,
 				800B1B1C1CDC88F600EA1C3D /* SRWebSocket.m in Sources */,
 				800B1B2A1CDC8A4300EA1C3D /* VertxConnectionManager.m in Sources */,
+				80A27A061CDD05B000002F9F /* SearchDisplayViewController.m in Sources */,
 				800B1B2D1CDCAF4C00EA1C3D /* stockData.m in Sources */,
 				800B1B471CDCBAFF00EA1C3D /* stockTableDataViewCell.m in Sources */,
+				80CEB58C1CDD9964003F6368 /* WatchlistViewCOntroller.m in Sources */,
 				800B1B1A1CDC88F600EA1C3D /* Makefile in Sources */,
 				800B1B301CDCB29000EA1C3D /* QuoteViewController.m in Sources */,
 				800B1AD91CDC512B00EA1C3D /* main.m in Sources */,
@@ -536,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -620,6 +642,7 @@
 				800B1B031CDC512B00EA1C3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesTests" */ = {
 			isa = XCConfigurationList;
@@ -628,6 +651,7 @@
 				800B1B061CDC512B00EA1C3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -636,6 +660,7 @@
 				800B1B091CDC512B00EA1C3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

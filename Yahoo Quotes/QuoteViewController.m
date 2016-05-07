@@ -38,6 +38,9 @@
     [_lblValue setText:@"Last Price"];
 
     btnSelected = 0;
+    
+    self.tabBarItem.selectedImage = [[UIImage imageNamed:@"quotes_enable.png"]
+                                     imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 

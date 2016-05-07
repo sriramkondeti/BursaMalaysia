@@ -23,6 +23,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     vcm = [VertxConnectionManager singleton];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:255.0f/255.0f green:35.0f/255.0f blue:26.0f/255.0f alpha:1.000]];
+    
+    //Navigation Bar - Title Color and Font Size
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:18.0f], NSFontAttributeName, nil]];
+    //Navigation Bar - BarButtonItem Color
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    //UIBarButtonItem - Color and Font Size
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                          [UIFont fontWithName:@"Helvetica-Bold" size:14.0f],
+                                                          NSFontAttributeName,
+                                                          nil] forState:UIControlStateNormal];
+    
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor grayColor], NSForegroundColorAttributeName,
+                                                       [UIFont fontWithName:@"Helvetica-Bold" size:14.0f],
+                                                       NSFontAttributeName,
+                                                       nil] forState:UIControlStateNormal];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                       [UIFont fontWithName:@"Helvetica-Bold" size:14.0f], NSFontAttributeName,
+                                                       nil] forState:UIControlStateSelected];
+    
 
     return YES;
 }

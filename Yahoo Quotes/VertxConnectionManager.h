@@ -17,6 +17,10 @@
 - (void)getGainers;
 - (void)getLosers;
 - (void)getActive;
+- (void)vertxSearch : (NSString *)str;
+- (void)vertxSearchStkCode : (NSString *)str;
+
+
 
 @property(nonatomic,retain)SRWebSocket *webSocket;
 + (VertxConnectionManager *)singleton;
