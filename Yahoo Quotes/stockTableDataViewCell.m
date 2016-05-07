@@ -9,5 +9,11 @@
 #import "stockTableDataViewCell.h"
 
 @implementation stockTableDataViewCell
+@synthesize stkCode;
 
+- (IBAction)WatchlistBtnPressed:(id)sender {
+    if (_delegate) {
+        [_delegate addToWatclistBtnPressed:self];
+    }
+}
 @end

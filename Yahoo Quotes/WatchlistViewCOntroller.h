@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WatchlistViewCOntroller : UIViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @end

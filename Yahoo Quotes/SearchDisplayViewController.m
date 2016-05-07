@@ -14,15 +14,29 @@
 @implementation SearchDisplayViewController
 {
     NSMutableArray *localSearchArr;
+    int selectedRow;
+
 }
 
 -(void)viewDidLoad{
     
     self.title  =@"Search";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneVertxSearch:) name:@"doneVertxSearch" object:nil];
+    selectedRow = -1;
 
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    
+    if (selectedRow == indexPath.row)
+        return 88;
+    
+    else
+        return 44;
+    
+    
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -50,11 +64,13 @@
     [quantityFormatter setGeneratesDecimalNumbers:YES];
     NSString *tempString = [localSearchArr objectAtIndex:indexPath.row];
     NSMutableDictionary *temp =[[[stockData singleton] qcFeedDataDict] objectForKey:tempString];
-    
-    cell.lblStkName.text =[temp objectForKey:@"33"];
-    
+    cell.delegate = self;
+    cell.lblStkName.text =[temp objectForKey:@"38"];
+    cell.stkCode = [temp objectForKey:@"33"];
     value = [temp objectForKey:@"98"] ;
     cell.lblPrice.text =  [priceFormatter stringFromNumber:value];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     float diffval = [[temp objectForKey:@"98"] floatValue] -[[temp objectForKey:@"51"]floatValue];
     if (diffval>0)
     {
@@ -70,6 +86,11 @@
         cell.lblPrice.textColor = [UIColor darkGrayColor];
             value = [temp objectForKey:@"51"] ;
             cell.lblValue.text = [quantityFormatter stringFromNumber:value];
+    
+    if ([[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode])
+       [ cell.btnWatchlist setEnabled:NO];
+    else
+        [cell.btnWatchlist setEnabled:YES];
 
     return cell;
     
@@ -92,6 +113,24 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (selectedRow == indexPath.row) {
+        selectedRow = -1;
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade ];
+        return;
+    }
+    
+    if (selectedRow !=-1) {
+        NSIndexPath *prevPath = [NSIndexPath indexPathForRow:selectedRow inSection:0];
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:prevPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    selectedRow = (int)indexPath.row;
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -102,6 +141,38 @@
 {
    
     [[VertxConnectionManager singleton] vertxSearch:_searchBar.text];
+    
+}
+
+-(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
+{
+    if (![[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
+        
+        NSLog(@"search %@", cell.stkCode);
+        [[[stockData singleton]watchListStkCodeArr]addObject:cell.stkCode];
+        NSLog(@"Search %@", [[stockData singleton]watchListStkCodeArr]);
+
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Watchlist"
+                                      message:[NSString stringWithFormat:@"%@ has been added to Watchlist Successfully", cell.lblStkName.text]
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okayBtn = [UIAlertAction
+                             actionWithTitle:@"Done"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 
+                                 
+                                 
+                             }];
+        
+        
+        [alert addAction:okayBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        [_searchDisplayTableView reloadData];
+    }
     
 }
 

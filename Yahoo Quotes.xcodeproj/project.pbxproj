@@ -41,6 +41,10 @@
 		80CEB5881CDD91CD003F6368 /* watchlist_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5861CDD91CD003F6368 /* watchlist_enable.png */; };
 		80CEB5891CDD91CD003F6368 /* watchlist_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */; };
 		80CEB58C1CDD9964003F6368 /* WatchlistViewCOntroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */; };
+		80CEB5911CDDCA07003F6368 /* Button_blue_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */; };
+		80CEB5921CDDCA07003F6368 /* Button_blue_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */; };
+		80CEB5931CDDCA07003F6368 /* Button_blue_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */; };
+		80CEB5941CDDCA07003F6368 /* Button_blue_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5901CDDCA07003F6368 /* Button_blue_normal@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,10 @@
 		80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchlist_enable@2x.png"; sourceTree = "<group>"; };
 		80CEB58A1CDD9964003F6368 /* WatchlistViewCOntroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewCOntroller.h; sourceTree = "<group>"; };
 		80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewCOntroller.m; sourceTree = "<group>"; };
+		80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_blue_click.png; sourceTree = "<group>"; };
+		80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_blue_normal.png; sourceTree = "<group>"; };
+		80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button_blue_click@2x.png"; sourceTree = "<group>"; };
+		80CEB5901CDDCA07003F6368 /* Button_blue_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button_blue_normal@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +226,10 @@
 		800B1B0A1CDC532F00EA1C3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */,
+				80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */,
+				80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */,
+				80CEB5901CDDCA07003F6368 /* Button_blue_normal@2x.png */,
 				800B1B3D1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30.png */,
 				800B1B3E1CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png */,
 				800B1B3F1CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png */,
@@ -370,17 +382,21 @@
 				80CEB5841CDD9196003F6368 /* quotes_enable.png in Resources */,
 				800B1B361CDCB3C100EA1C3D /* topbar_bg.png in Resources */,
 				80CEB5891CDD91CD003F6368 /* watchlist_enable@2x.png in Resources */,
+				80CEB5941CDDCA07003F6368 /* Button_blue_normal@2x.png in Resources */,
 				800B1AE71CDC512B00EA1C3D /* LaunchScreen.storyboard in Resources */,
 				80CEB5881CDD91CD003F6368 /* watchlist_enable.png in Resources */,
 				800B1B381CDCB3C100EA1C3D /* topbar_bg_selected@2x.png in Resources */,
+				80CEB5911CDDCA07003F6368 /* Button_blue_click.png in Resources */,
 				800B1B1B1CDC88F600EA1C3D /* Info.plist in Resources */,
 				800B1B431CDCB9FC00EA1C3D /* ButtonChg_Red70x30.png in Resources */,
 				800B1B351CDCB3C100EA1C3D /* topbar_bg@2x.png in Resources */,
 				800B1AE41CDC512B00EA1C3D /* Assets.xcassets in Resources */,
 				800B1B421CDCB9FC00EA1C3D /* ButtonChg_Grn70x30@2x.png in Resources */,
+				80CEB5921CDDCA07003F6368 /* Button_blue_normal.png in Resources */,
 				800B1AE21CDC512B00EA1C3D /* Main.storyboard in Resources */,
 				800B1B3B1CDCB4CD00EA1C3D /* TableHeader.png in Resources */,
 				800B1B371CDCB3C100EA1C3D /* topbar_bg_selected.png in Resources */,
+				80CEB5931CDDCA07003F6368 /* Button_blue_click@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

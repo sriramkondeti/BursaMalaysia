@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "stockTableDataViewCell.h"
 
-@interface QuoteViewController : UIViewController<UITableViewDelegate>
+@interface QuoteViewController : UIViewController<UITableViewDelegate,stockTableDataViewCellDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *btnActive;
 @property (strong, nonatomic) IBOutlet UIButton *btnGainer;
