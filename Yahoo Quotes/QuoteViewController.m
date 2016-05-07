@@ -227,10 +227,8 @@
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
 {
-    if (![[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
+    if (![[[stockData singleton]remoteWatchlistStkCodeArr]containsObject:cell.stkCode]) {
 
-    NSLog(@"Quotes %@", cell.stkCode);
-    [[[stockData singleton]watchListStkCodeArr]addObject:cell.stkCode];
         PFObject *sendObject = [PFObject objectWithClassName:@"Watchlist"];
         sendObject[@"Stockcode"] = cell.stkCode;
         [sendObject saveInBackground];
@@ -254,7 +252,7 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
-        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+       //[[VertxConnectionManager singleton]getRemoteWatchlistArray];
 
         [_tableView reloadData];
     }

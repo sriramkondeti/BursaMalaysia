@@ -8,7 +8,7 @@
 
 #import "VertxConnectionManager.h"
 #import "stockData.h"
-#import <Parse/Parse.h>
+#import <parse
 
 
 @interface VertxConnectionManager()
@@ -106,7 +106,6 @@
             {
                 [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
                 [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
-                NSLog(@"%@", [[stockData singleton]remoteWatchlistid]);
 
             }
 

@@ -24,7 +24,7 @@
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     selectedRow = -1;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveStockDetails) name:@"didReceiveStockDetails" object:nil];
-    [[VertxConnectionManager singleton]getWatchlistDetails];
+
 
 
 }
@@ -33,7 +33,7 @@
 {
     [super viewWillAppear:animated];
     selectedRow = -1;
-    [_tableview reloadData];
+    [[VertxConnectionManager singleton]getRemoteWatchlistArray];
 
 }
 
@@ -157,7 +157,10 @@
 
         PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
                                                            objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
-        [object deleteInBackground];
+        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+
+        }];
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
@@ -178,12 +181,12 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
-        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
     }
 }
 
 -(void)didReceiveStockDetails
 {
+    selectedRow = -1;
     localwatchListarr = [stockData singleton].remoteWatchlistStkCodeArr;
     [_tableview reloadData];
 }
