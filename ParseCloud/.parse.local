@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Bursa Malaysia": {
+      "applicationId": "6vR2BlU29Y9BRdzZKM8iKGZnRpc8hQIREERQ3nOv"
+    },
+    "_default": {
+      "link": "Bursa Malaysia"
+    }
+  }
+}

@@ -58,6 +58,18 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [PFCloud callFunctionInBackground:@"Pricealert" withParameters:@{@"Stockcode": @"0110.KL"} block:
+     ^(id object, NSError * _Nullable error) {
+         
+         if(!error)
+             NSLog(@"success");
+         
+     }];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     selectedRow = -1;
