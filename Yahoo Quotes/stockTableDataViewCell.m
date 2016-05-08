@@ -16,4 +16,11 @@
         [_delegate addToWatclistBtnPressed:self];
     }
 }
+
+- (IBAction)setPriceAlertBtnPressed:(id)sender {
+    if (_delegate) {
+        [_delegate priceAlertBtnPressed:self];
+    }
+}
+
 @end

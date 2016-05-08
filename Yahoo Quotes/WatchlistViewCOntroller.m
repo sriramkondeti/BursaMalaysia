@@ -14,6 +14,7 @@
 @implementation WatchlistViewCOntroller
 {
     int selectedRow;
+    
 
 }
 
@@ -22,6 +23,7 @@
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"watchlist_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     selectedRow = -1;
+    
 
 
 
@@ -145,6 +147,32 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+-(void) priceAlertBtnPressed:(stockTableDataViewCell *)cell
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Price Alert" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
+                                                           objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
+        object[@"Price"] = [NSString stringWithFormat:@"%.3f",alert.textFields.firstObject.text.floatValue];
+        [object saveInBackground];
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+    }];
+    
+    [alert addAction:doneAction];
+    [alert addAction:cancelAction];
+
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Set Price Alert";
+    }];
+    
+    [self presentViewController:alert animated:YES completion:nil]; 
 }
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell

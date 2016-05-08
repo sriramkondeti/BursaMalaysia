@@ -93,6 +93,7 @@
     else
         [cell.btnWatchlist setEnabled:YES];
 
+    [cell.btnPriceAlert setHidden:YES];
     return cell;
     
 }

@@ -19,12 +19,16 @@
 @property (nonatomic,retain) id <stockTableDataViewCellDelegate> delegate;
 
 - (IBAction)WatchlistBtnPressed:(id)sender;
+- (IBAction)setPriceAlertBtnPressed:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *btnWatchlist;
+@property (strong, nonatomic) IBOutlet UIButton *btnPriceAlert;
 
 @end
 
 @protocol stockTableDataViewCellDelegate <NSObject>
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell;
+-(void)priceAlertBtnPressed:(stockTableDataViewCell *)cell;
 
 @end
