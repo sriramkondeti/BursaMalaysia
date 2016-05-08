@@ -9,7 +9,7 @@
 #import "stockData.h"
 
 @implementation stockData :NSObject
-@synthesize getActiveStkCodeArr,getGainersStkCodeArr,getLosersStkCodeArr,qcFeedDataDict,watchListStkCodeArr,remoteWatchlistStkCodeArr,remoteWatchlistid;
+@synthesize getActiveStkCodeArr,getGainersStkCodeArr,getLosersStkCodeArr,qcFeedDataDict,watchListStkCodeArr,remoteWatchlistStkCodeArr,remoteWatchlistid,remoteStockPrice;
 
 + (stockData *)singleton
 {
@@ -34,6 +34,7 @@
         watchListStkCodeArr = [NSMutableArray array];
         remoteWatchlistStkCodeArr = [NSMutableArray array];
         remoteWatchlistid = [NSMutableArray array];
+        remoteStockPrice = [NSMutableArray array];
         
     }
     return self;

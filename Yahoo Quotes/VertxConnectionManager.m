@@ -40,6 +40,8 @@
     {
         if(!singleton)
             singleton = [[VertxConnectionManager alloc]init];
+       
+
     }
     return singleton;
     
@@ -97,6 +99,10 @@
 -(void)getRemoteWatchlistArray
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+    [stockData singleton].remoteStockPrice =[NSMutableArray array];
+    [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+    [stockData singleton].remoteWatchlistid = [NSMutableArray array];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
         {
@@ -105,10 +111,15 @@
             {
                 [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
                 [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
-
+                if (obj[@"Price"])
+                [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
             }
-            [stockData singleton].watchListStkCodeArr = [stockData singleton].remoteWatchlistStkCodeArr;
+            static dispatch_once_t once;
+            dispatch_once(&once, ^ {
+                [stockData singleton].watchListStkCodeArr = [stockData singleton].remoteWatchlistStkCodeArr;
+
             [self getWatchlistDetails];
+            });
         }
     }
       ];
@@ -306,6 +317,10 @@
         if(incomingEnd)
         {
             responseDict = nil;
+            NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"didReceiveStockDetails" object:self userInfo:notificationData];
+
             incomingHasNext = false;
             keepQid = nil;
             return;

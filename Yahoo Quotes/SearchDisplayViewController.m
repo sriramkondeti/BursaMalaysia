@@ -24,6 +24,7 @@
     self.title  =@"Search";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneVertxSearch:) name:@"doneVertxSearch" object:nil];
     selectedRow = -1;
+    
 
 }
 

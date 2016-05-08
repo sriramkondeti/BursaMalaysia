@@ -21,6 +21,7 @@
     NSMutableArray *localLoserArr;
     int btnSelected;
     int selectedRow;
+    NSTimer *timer;
 
 
 }
@@ -42,6 +43,7 @@
     selectedRow = -1;
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"quotes_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    timer = [NSTimer scheduledTimerWithTimeInterval: 60.0f target: self selector: @selector(checkPriceAlert) userInfo: nil repeats: YES];
     
   
 }
@@ -58,17 +60,7 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [PFCloud callFunctionInBackground:@"Pricealert" withParameters:@{@"Stockcode": @"0110.KL"} block:
-     ^(id object, NSError * _Nullable error) {
-         
-         if(!error)
-             NSLog(@"success");
-         
-     }];
-    
-}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -271,6 +263,35 @@
 
         [_tableView reloadData];
     }
+}
+
+-(void)checkPriceAlert
+{
+    NSString *stkcode;
+    NSString *price;
+    NSMutableDictionary *tempDict;
+    for (int i=0;i<[stockData singleton].remoteStockPrice.count;i++ )
+    {
+        stkcode = [[stockData singleton].remoteWatchlistStkCodeArr objectAtIndex:i];
+        
+            price = [[stockData singleton].remoteStockPrice objectAtIndex:i];
+            tempDict = [[[stockData singleton]qcFeedDataDict]objectForKey:stkcode];
+            if ([[tempDict objectForKey:@"98"] floatValue] == price.floatValue) {
+                [PFCloud callFunctionInBackground:@"Pricealert" withParameters:@{@"Stockcode": stkcode ,@"Stkname":[tempDict objectForKey:@"38"]} block:
+                 ^(id object, NSError * _Nullable error) {
+                     
+                     if(!error)
+                         NSLog(@"success");
+                     
+                 }];
+        }
+        
+
+        
+        
+    }
+    
+    
 }
 
 

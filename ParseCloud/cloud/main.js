@@ -16,7 +16,7 @@ Parse.Cloud.define("Pricealert", function(request, response) {
                               Parse.Push.send({
                                               where: queryPush, // Set our Installation query
                                               data: {
-                                              alert: result.get("Stockcode") + " has reached the Price " + result.get("Price")
+                                              alert: request.params.Stkname + " has reached the Price " + result.get("Price")
                                               }
                                               },{
                                               success: function() {

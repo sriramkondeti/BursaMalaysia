@@ -152,13 +152,31 @@
 -(void) priceAlertBtnPressed:(stockTableDataViewCell *)cell
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Price Alert" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
+    selectedRow = -1;
     UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         
-        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
-                                                           objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
+        PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+        [stockData singleton].remoteWatchlistid = [NSMutableArray array];
+        [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+        [stockData singleton].remoteStockPrice = [NSMutableArray array];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error)
+            {
+                for (PFObject *obj in objects)
+                {
+                    [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
+                    [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
+                    if (obj[@"Price"])
+                        [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
+                }
+                PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
+                                                                   objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
         object[@"Price"] = [NSString stringWithFormat:@"%.3f",alert.textFields.firstObject.text.floatValue];
         [object saveInBackground];
+        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+            }
+        }];
         
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -186,6 +204,8 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
         [stockData singleton].remoteWatchlistid = [NSMutableArray array];
         [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+        [stockData singleton].remoteStockPrice = [NSMutableArray array];
+
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error)
             {
@@ -194,11 +214,15 @@
                 {
                     [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
                     [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
+                    if (obj[@"Price"])
+                    [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
+
                     
                 }
                 PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
                                                                    objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
                 [object deleteInBackground];
+                [[VertxConnectionManager singleton]getRemoteWatchlistArray];
             }}];
         
         
