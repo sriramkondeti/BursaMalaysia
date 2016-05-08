@@ -51,7 +51,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mAs-cq-j4f">
-                                                    <rect key="frame" x="237" y="49" width="70" height="30"/>
+                                                    <rect key="frame" x="235" y="49" width="75" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="+ Watch" backgroundImage="Button_blue_normal.png">
@@ -171,7 +171,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YGs-8d-doj">
-                                            <rect key="frame" x="237" y="49" width="70" height="30"/>
+                                            <rect key="frame" x="235" y="49" width="75" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="+ Watch" backgroundImage="Button_blue_normal.png">
@@ -305,7 +305,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vZt-PF-CXY">
-                                                    <rect key="frame" x="237" y="49" width="70" height="30"/>
+                                                    <rect key="frame" x="235" y="49" width="75" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="+ Watch" backgroundImage="Button_blue_normal.png">

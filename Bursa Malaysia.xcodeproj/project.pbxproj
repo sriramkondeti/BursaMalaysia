@@ -152,10 +152,10 @@
 				800B1B221CDC897C00EA1C3D /* Security.framework in Frameworks */,
 				80CEB5A91CDDF7A3003F6368 /* QuartzCore.framework in Frameworks */,
 				80CEB5A71CDDF799003F6368 /* CoreLocation.framework in Frameworks */,
-				8073B49A1CDF16CD00D835E0 /* Bolts.framework in Frameworks */,
 				80CEB5A51CDDF78F003F6368 /* CoreGraphics.framework in Frameworks */,
-				800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */,
+				8073B49A1CDF16CD00D835E0 /* Bolts.framework in Frameworks */,
 				8073B49B1CDF16CD00D835E0 /* Parse.framework in Frameworks */,
+				800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */,
 				80CEB5A31CDDF77C003F6368 /* AudioToolbox.framework in Frameworks */,
 				800B1B241CDC898100EA1C3D /* Foundation.framework in Frameworks */,
 				800B1B1E1CDC896C00EA1C3D /* libicucore.tbd in Frameworks */,
@@ -619,8 +619,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
-					"$(PROJECT_DIR)/Yahoo",
-					"$(PROJECT_DIR)/Yahoo",
+					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
 					Quotes,
 				);
@@ -630,7 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
 				PROVISIONING_PROFILE = "48ad341b-d10a-495f-92a5-28ebdc8d7105";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -642,8 +641,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
-					"$(PROJECT_DIR)/Yahoo",
-					"$(PROJECT_DIR)/Yahoo",
+					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
 					Quotes,
 				);
@@ -653,7 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
 				PROVISIONING_PROFILE = "92a8d8a2-3907-4a64-9d9c-3a52923e2375";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
