@@ -22,11 +22,7 @@
 {
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"watchlist_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    selectedRow = -1;
     
-
-
-
 }
 
 -(void) viewWillAppear:(BOOL)animated
