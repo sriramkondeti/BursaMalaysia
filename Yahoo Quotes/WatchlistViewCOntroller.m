@@ -50,7 +50,30 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
 {
-    return 1;
+    if ([stockData singleton].watchListStkCodeArr.count)
+    {
+        _tableview .backgroundView = nil;
+        _tableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+        
+    }
+    else
+    {
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"Add Items to Watchlist.";
+        messageLabel.textColor = [UIColor lightGrayColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+        [messageLabel sizeToFit];
+        
+        
+        _tableview.backgroundView = messageLabel;
+        _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return  0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -185,7 +208,8 @@
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Set Price Alert";
     }];
-    
+    [alert.view  setNeedsLayout] ;
+
     [self presentViewController:alert animated:YES completion:nil]; 
 }
 

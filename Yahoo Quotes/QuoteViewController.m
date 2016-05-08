@@ -22,8 +22,6 @@
     int btnSelected;
     int selectedRow;
     NSTimer *timer;
-
-
 }
 
 -(void)viewDidLoad

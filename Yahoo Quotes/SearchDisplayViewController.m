@@ -137,7 +137,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (localSearchArr)
+    {
+        _searchDisplayTableView .backgroundView = nil;
+        _searchDisplayTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+        
+    }
+    else
+    {
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"No Results.";
+        messageLabel.textColor = [UIColor lightGrayColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
+        [messageLabel sizeToFit];
+        
+        
+        _searchDisplayTableView.backgroundView = messageLabel;
+        _searchDisplayTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return  0;
+    }
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar

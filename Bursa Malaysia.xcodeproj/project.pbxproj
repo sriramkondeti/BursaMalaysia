@@ -61,6 +61,7 @@
 		8073B5061CDF738E00D835E0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8073B4F01CDF738E00D835E0 /* README.md */; };
 		8073B5081CDF73D600D835E0 /* iphone-6s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8073B5071CDF73D600D835E0 /* iphone-6s.jpg */; };
 		8073B50A1CDF74D400D835E0 /* D0tyQgD.png in Resources */ = {isa = PBXBuildFile; fileRef = 8073B5091CDF74D400D835E0 /* D0tyQgD.png */; };
+		8073B50E1CDF77E000D835E0 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 8073B50D1CDF77E000D835E0 /* Launch.png */; };
 		80A27A061CDD05B000002F9F /* SearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */; };
 		80CEB5841CDD9196003F6368 /* quotes_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5821CDD9196003F6368 /* quotes_enable.png */; };
 		80CEB5851CDD9196003F6368 /* quotes_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */; };
@@ -166,6 +167,7 @@
 		8073B4F01CDF738E00D835E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8073B5071CDF73D600D835E0 /* iphone-6s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "iphone-6s.jpg"; path = "../../../Downloads/iphone-6s.jpg"; sourceTree = "<group>"; };
 		8073B5091CDF74D400D835E0 /* D0tyQgD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D0tyQgD.png; sourceTree = "<group>"; };
+		8073B50D1CDF77E000D835E0 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
 		80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayViewController.h; sourceTree = "<group>"; };
 		80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayViewController.m; sourceTree = "<group>"; };
 		80CEB5821CDD9196003F6368 /* quotes_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quotes_enable.png; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		800B1B0A1CDC532F00EA1C3D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8073B50D1CDF77E000D835E0 /* Launch.png */,
 				8073B5091CDF74D400D835E0 /* D0tyQgD.png */,
 				8073B5071CDF73D600D835E0 /* iphone-6s.jpg */,
 				8073B4D91CDF738E00D835E0 /* ios */,
@@ -544,6 +547,7 @@
 				80CEB5921CDDCA07003F6368 /* Button_blue_normal.png in Resources */,
 				8073B5031CDF738E00D835E0 /* Icon@2x.png in Resources */,
 				8073B4FF1CDF738E00D835E0 /* Icon-72@2x.png in Resources */,
+				8073B50E1CDF77E000D835E0 /* Launch.png in Resources */,
 				8073B4FC1CDF738E00D835E0 /* Icon-Small@3x.png in Resources */,
 				800B1AE21CDC512B00EA1C3D /* Main.storyboard in Resources */,
 				8073B4FE1CDF738E00D835E0 /* Icon-72.png in Resources */,
@@ -729,8 +733,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Yahoo",
+					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
 					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
@@ -741,7 +748,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
-				PROVISIONING_PROFILE = "48ad341b-d10a-495f-92a5-28ebdc8d7105";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -751,8 +758,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Yahoo",
+					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
 					Quotes,
 					"$(PROJECT_DIR)/Yahoo",
@@ -763,7 +773,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
-				PROVISIONING_PROFILE = "92a8d8a2-3907-4a64-9d9c-3a52923e2375";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

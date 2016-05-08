@@ -82,12 +82,9 @@
     [currentInstallation saveInBackground];
 }
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"Did Fail to Register for Remote Notifications");
-    NSLog(@"%@, %@", error, error.localizedDescription);
     
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"%@",userInfo);
     [PFPush handlePush:userInfo];
 }
 
