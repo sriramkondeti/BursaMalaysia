@@ -227,11 +227,14 @@
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
 {
-    if (![[[stockData singleton]remoteWatchlistStkCodeArr]containsObject:cell.stkCode]) {
+    if (![[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
 
+        [[stockData singleton].watchListStkCodeArr addObject:cell.stkCode];
         PFObject *sendObject = [PFObject objectWithClassName:@"Watchlist"];
         sendObject[@"Stockcode"] = cell.stkCode;
         [sendObject saveInBackground];
+        
+        
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
@@ -252,7 +255,6 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
-       //[[VertxConnectionManager singleton]getRemoteWatchlistArray];
 
         [_tableView reloadData];
     }

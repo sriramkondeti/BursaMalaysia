@@ -10,6 +10,7 @@
 #import "VertxConnectionManager.h"
 #import "stockTableDataViewCell.h"
 #import "stockData.h"
+#import <Parse/Parse.h>
 
 @implementation SearchDisplayViewController
 {
@@ -148,10 +149,12 @@
 {
     if (![[[stockData singleton]watchListStkCodeArr]containsObject:cell.stkCode]) {
         
-        NSLog(@"search %@", cell.stkCode);
         [[[stockData singleton]watchListStkCodeArr]addObject:cell.stkCode];
-        NSLog(@"Search %@", [[stockData singleton]watchListStkCodeArr]);
-
+        PFObject *sendObject = [PFObject objectWithClassName:@"Watchlist"];
+        sendObject[@"Stockcode"] = cell.stkCode;
+        [sendObject saveInBackground];
+        
+      
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
                                       message:[NSString stringWithFormat:@"%@ has been added to Watchlist Successfully", cell.lblStkName.text]

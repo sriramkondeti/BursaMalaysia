@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "800B1AD31CDC512B00EA1C3D"
-               BuildableName = "Yahoo Quotes.app"
-               BlueprintName = "Yahoo Quotes"
-               ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+               BuildableName = "Bursa Malaysia.app"
+               BlueprintName = "Bursa Malaysia"
+               ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "800B1AEC1CDC512B00EA1C3D"
-               BuildableName = "Yahoo QuotesTests.xctest"
-               BlueprintName = "Yahoo QuotesTests"
-               ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+               BuildableName = "Bursa Malaysia.xctest"
+               BlueprintName = "Bursa MalaysiaTests"
+               ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "800B1AF71CDC512B00EA1C3D"
-               BuildableName = "Yahoo QuotesUITests.xctest"
-               BlueprintName = "Yahoo QuotesUITests"
-               ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+               BuildableName = "Bursa Malaysia.xctest"
+               BlueprintName = "Bursa MalaysiaUITests"
+               ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "800B1AD31CDC512B00EA1C3D"
-            BuildableName = "Yahoo Quotes.app"
-            BlueprintName = "Yahoo Quotes"
-            ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+            BuildableName = "Bursa Malaysia.app"
+            BlueprintName = "Bursa Malaysia"
+            ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "800B1AD31CDC512B00EA1C3D"
-            BuildableName = "Yahoo Quotes.app"
-            BlueprintName = "Yahoo Quotes"
-            ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+            BuildableName = "Bursa Malaysia.app"
+            BlueprintName = "Bursa Malaysia"
+            ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "800B1AD31CDC512B00EA1C3D"
-            BuildableName = "Yahoo Quotes.app"
-            BlueprintName = "Yahoo Quotes"
-            ReferencedContainer = "container:Yahoo Quotes.xcodeproj">
+            BuildableName = "Bursa Malaysia.app"
+            BlueprintName = "Bursa Malaysia"
+            ReferencedContainer = "container:Bursa Malaysia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

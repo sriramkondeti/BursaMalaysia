@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80011BDE1CDEE53C000E12EE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5971CDDF6B0003F6368 /* Parse.framework */; };
+		80011BDF1CDEE53C000E12EE /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5981CDDF6B0003F6368 /* ParseFacebookUtils.framework */; };
+		80011BE01CDEE53C000E12EE /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5991CDDF6B0003F6368 /* ParseFacebookUtilsV4.framework */; };
+		80011BE11CDEE53C000E12EE /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB59A1CDDF6B0003F6368 /* ParseTwitterUtils.framework */; };
+		80011BE21CDEE53C000E12EE /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB59B1CDDF6B0003F6368 /* ParseUI.framework */; };
 		800B1AD91CDC512B00EA1C3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1AD81CDC512B00EA1C3D /* main.m */; };
 		800B1ADC1CDC512B00EA1C3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */; };
 		800B1AE21CDC512B00EA1C3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 800B1AE01CDC512B00EA1C3D /* Main.storyboard */; };
@@ -46,11 +51,6 @@
 		80CEB5931CDDCA07003F6368 /* Button_blue_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */; };
 		80CEB5941CDDCA07003F6368 /* Button_blue_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5901CDDCA07003F6368 /* Button_blue_normal@2x.png */; };
 		80CEB59C1CDDF6B0003F6368 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5961CDDF6B0003F6368 /* Bolts.framework */; };
-		80CEB59D1CDDF6B0003F6368 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5971CDDF6B0003F6368 /* Parse.framework */; };
-		80CEB59E1CDDF6B0003F6368 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5981CDDF6B0003F6368 /* ParseFacebookUtils.framework */; };
-		80CEB59F1CDDF6B0003F6368 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5991CDDF6B0003F6368 /* ParseFacebookUtilsV4.framework */; };
-		80CEB5A01CDDF6B0003F6368 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB59A1CDDF6B0003F6368 /* ParseTwitterUtils.framework */; };
-		80CEB5A11CDDF6B0003F6368 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB59B1CDDF6B0003F6368 /* ParseUI.framework */; };
 		80CEB5A31CDDF77C003F6368 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5A21CDDF77C003F6368 /* AudioToolbox.framework */; };
 		80CEB5A51CDDF78F003F6368 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5A41CDDF78F003F6368 /* CoreGraphics.framework */; };
 		80CEB5A71CDDF799003F6368 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CEB5A61CDDF799003F6368 /* CoreLocation.framework */; };
@@ -79,7 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yahoo Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AD41CDC512B00EA1C3D /* Bursa Malaysia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bursa Malaysia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		800B1AD81CDC512B00EA1C3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,10 +87,10 @@
 		800B1AE31CDC512B00EA1C3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		800B1AE61CDC512B00EA1C3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800B1AE81CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yahoo QuotesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AED1CDC512B00EA1C3D /* Bursa Malaysia.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bursa Malaysia.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Yahoo_QuotesTests.m; sourceTree = "<group>"; };
 		800B1AF31CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yahoo QuotesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		800B1AF81CDC512B00EA1C3D /* Bursa Malaysia.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bursa Malaysia.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Yahoo_QuotesUITests.m; sourceTree = "<group>"; };
 		800B1AFE1CDC512B00EA1C3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		800B1B141CDC88F500EA1C3D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -153,6 +153,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80CEB59C1CDDF6B0003F6368 /* Bolts.framework in Frameworks */,
+				80011BDE1CDEE53C000E12EE /* Parse.framework in Frameworks */,
+				80011BDF1CDEE53C000E12EE /* ParseFacebookUtils.framework in Frameworks */,
+				80011BE01CDEE53C000E12EE /* ParseFacebookUtilsV4.framework in Frameworks */,
+				80011BE11CDEE53C000E12EE /* ParseTwitterUtils.framework in Frameworks */,
+				80011BE21CDEE53C000E12EE /* ParseUI.framework in Frameworks */,
 				80CEB5B11CDDF7F7003F6368 /* libsqlite3.tbd in Frameworks */,
 				80CEB5AF1CDDF7E4003F6368 /* libz.tbd in Frameworks */,
 				80CEB5AD1CDDF7D2003F6368 /* SystemConfiguration.framework in Frameworks */,
@@ -163,13 +169,7 @@
 				80CEB5A51CDDF78F003F6368 /* CoreGraphics.framework in Frameworks */,
 				800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */,
 				80CEB5A31CDDF77C003F6368 /* AudioToolbox.framework in Frameworks */,
-				80CEB59E1CDDF6B0003F6368 /* ParseFacebookUtils.framework in Frameworks */,
-				80CEB59C1CDDF6B0003F6368 /* Bolts.framework in Frameworks */,
-				80CEB5A11CDDF6B0003F6368 /* ParseUI.framework in Frameworks */,
-				80CEB59F1CDDF6B0003F6368 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				800B1B241CDC898100EA1C3D /* Foundation.framework in Frameworks */,
-				80CEB5A01CDDF6B0003F6368 /* ParseTwitterUtils.framework in Frameworks */,
-				80CEB59D1CDDF6B0003F6368 /* Parse.framework in Frameworks */,
 				800B1B1E1CDC896C00EA1C3D /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,9 +204,9 @@
 		800B1AD51CDC512B00EA1C3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */,
-				800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */,
-				800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */,
+				800B1AD41CDC512B00EA1C3D /* Bursa Malaysia.app */,
+				800B1AED1CDC512B00EA1C3D /* Bursa Malaysia.xctest */,
+				800B1AF81CDC512B00EA1C3D /* Bursa Malaysia.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -339,9 +339,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */ = {
+		800B1AD31CDC512B00EA1C3D /* Bursa Malaysia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo Quotes" */;
+			buildConfigurationList = 800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa Malaysia" */;
 			buildPhases = (
 				800B1AD01CDC512B00EA1C3D /* Sources */,
 				800B1AD11CDC512B00EA1C3D /* Frameworks */,
@@ -351,14 +351,14 @@
 			);
 			dependencies = (
 			);
-			name = "Yahoo Quotes";
+			name = "Bursa Malaysia";
 			productName = "Yahoo Quotes";
-			productReference = 800B1AD41CDC512B00EA1C3D /* Yahoo Quotes.app */;
+			productReference = 800B1AD41CDC512B00EA1C3D /* Bursa Malaysia.app */;
 			productType = "com.apple.product-type.application";
 		};
-		800B1AEC1CDC512B00EA1C3D /* Yahoo QuotesTests */ = {
+		800B1AEC1CDC512B00EA1C3D /* Bursa MalaysiaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesTests" */;
+			buildConfigurationList = 800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa MalaysiaTests" */;
 			buildPhases = (
 				800B1AE91CDC512B00EA1C3D /* Sources */,
 				800B1AEA1CDC512B00EA1C3D /* Frameworks */,
@@ -369,14 +369,14 @@
 			dependencies = (
 				800B1AEF1CDC512B00EA1C3D /* PBXTargetDependency */,
 			);
-			name = "Yahoo QuotesTests";
+			name = "Bursa MalaysiaTests";
 			productName = "Yahoo QuotesTests";
-			productReference = 800B1AED1CDC512B00EA1C3D /* Yahoo QuotesTests.xctest */;
+			productReference = 800B1AED1CDC512B00EA1C3D /* Bursa Malaysia.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		800B1AF71CDC512B00EA1C3D /* Yahoo QuotesUITests */ = {
+		800B1AF71CDC512B00EA1C3D /* Bursa MalaysiaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesUITests" */;
+			buildConfigurationList = 800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa MalaysiaUITests" */;
 			buildPhases = (
 				800B1AF41CDC512B00EA1C3D /* Sources */,
 				800B1AF51CDC512B00EA1C3D /* Frameworks */,
@@ -387,9 +387,9 @@
 			dependencies = (
 				800B1AFA1CDC512B00EA1C3D /* PBXTargetDependency */,
 			);
-			name = "Yahoo QuotesUITests";
+			name = "Bursa MalaysiaUITests";
 			productName = "Yahoo QuotesUITests";
-			productReference = 800B1AF81CDC512B00EA1C3D /* Yahoo QuotesUITests.xctest */;
+			productReference = 800B1AF81CDC512B00EA1C3D /* Bursa Malaysia.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -414,7 +414,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Yahoo Quotes" */;
+			buildConfigurationList = 800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Bursa Malaysia" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -427,9 +427,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */,
-				800B1AEC1CDC512B00EA1C3D /* Yahoo QuotesTests */,
-				800B1AF71CDC512B00EA1C3D /* Yahoo QuotesUITests */,
+				800B1AD31CDC512B00EA1C3D /* Bursa Malaysia */,
+				800B1AEC1CDC512B00EA1C3D /* Bursa MalaysiaTests */,
+				800B1AF71CDC512B00EA1C3D /* Bursa MalaysiaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -519,12 +519,12 @@
 /* Begin PBXTargetDependency section */
 		800B1AEF1CDC512B00EA1C3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */;
+			target = 800B1AD31CDC512B00EA1C3D /* Bursa Malaysia */;
 			targetProxy = 800B1AEE1CDC512B00EA1C3D /* PBXContainerItemProxy */;
 		};
 		800B1AFA1CDC512B00EA1C3D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 800B1AD31CDC512B00EA1C3D /* Yahoo Quotes */;
+			target = 800B1AD31CDC512B00EA1C3D /* Bursa Malaysia */;
 			targetProxy = 800B1AF91CDC512B00EA1C3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -586,7 +586,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -624,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -639,12 +639,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
 					"Quotes/parse-library",
+					"$(PROJECT_DIR)/Yahoo",
+					"Quotes/parse-library",
+					"$(PROJECT_DIR)/Yahoo",
+					"Quotes/parse-library",
 				);
 				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
+				PRODUCT_NAME = "Bursa Malaysia";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -657,12 +661,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
 					"Quotes/parse-library",
+					"$(PROJECT_DIR)/Yahoo",
+					"Quotes/parse-library",
+					"$(PROJECT_DIR)/Yahoo",
+					"Quotes/parse-library",
 				);
 				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-Quotes";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
+				PRODUCT_NAME = "Bursa Malaysia";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -674,8 +682,8 @@
 				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahoo Quotes.app/Yahoo Quotes";
+				PRODUCT_NAME = "Bursa Malaysia";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bursa Malaysia.app/Bursa Malaysia";
 			};
 			name = Debug;
 		};
@@ -686,8 +694,8 @@
 				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yahoo Quotes.app/Yahoo Quotes";
+				PRODUCT_NAME = "Bursa Malaysia";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bursa Malaysia.app/Bursa Malaysia";
 			};
 			name = Release;
 		};
@@ -697,7 +705,7 @@
 				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bursa Malaysia";
 				TEST_TARGET_NAME = "Yahoo Quotes";
 			};
 			name = Debug;
@@ -708,7 +716,7 @@
 				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bursa Malaysia";
 				TEST_TARGET_NAME = "Yahoo Quotes";
 			};
 			name = Release;
@@ -716,7 +724,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Yahoo Quotes" */ = {
+		800B1ACF1CDC512B00EA1C3D /* Build configuration list for PBXProject "Bursa Malaysia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800B1AFF1CDC512B00EA1C3D /* Debug */,
@@ -725,7 +733,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo Quotes" */ = {
+		800B1B011CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa Malaysia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800B1B021CDC512B00EA1C3D /* Debug */,
@@ -734,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesTests" */ = {
+		800B1B041CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa MalaysiaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800B1B051CDC512B00EA1C3D /* Debug */,
@@ -743,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Yahoo QuotesUITests" */ = {
+		800B1B071CDC512B00EA1C3D /* Build configuration list for PBXNativeTarget "Bursa MalaysiaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				800B1B081CDC512B00EA1C3D /* Debug */,

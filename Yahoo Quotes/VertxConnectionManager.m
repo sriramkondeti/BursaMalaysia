@@ -8,7 +8,8 @@
 
 #import "VertxConnectionManager.h"
 #import "stockData.h"
-#import <parse
+#import <Parse/Parse.h>
+
 
 
 @interface VertxConnectionManager()
@@ -97,8 +98,6 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
-        [stockData singleton].remoteWatchlistid = [NSMutableArray array];
         if (!error)
         {
             
@@ -108,7 +107,7 @@
                 [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
 
             }
-
+            [stockData singleton].watchListStkCodeArr = [stockData singleton].remoteWatchlistStkCodeArr;
             [self getWatchlistDetails];
         }
     }
@@ -156,7 +155,7 @@
     
     [filterDict setObject:@"33" forKey:@"field"];
     [filterDict setObject:@"in" forKey:@"comparison"];
-    [filterDict setObject:[[stockData singleton]remoteWatchlistStkCodeArr] forKey:@"value"];
+    [filterDict setObject:[[stockData singleton]watchListStkCodeArr] forKey:@"value"];
     [filterArr addObject:[filterDict copy]];
     
     [sendMessage setObject:filterArr forKey:@"filter"];
@@ -306,9 +305,6 @@
             responseDict = [NSMutableDictionary dictionary];
         if(incomingEnd)
         {
-            NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
-            if ([responseDict count]>0)
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"didReceiveStockDetails" object:self userInfo:notificationData];
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;

@@ -13,7 +13,6 @@
 #import "VertxConnectionManager.h"
 @implementation WatchlistViewCOntroller
 {
-    NSMutableArray *localwatchListarr;
     int selectedRow;
 
 }
@@ -23,7 +22,6 @@
     self.tabBarItem.selectedImage = [[UIImage imageNamed:@"watchlist_enable.png"]
                                      imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     selectedRow = -1;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveStockDetails) name:@"didReceiveStockDetails" object:nil];
 
 
 
@@ -33,7 +31,7 @@
 {
     [super viewWillAppear:animated];
     selectedRow = -1;
-    [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+    [_tableview reloadData];
 
 }
 
@@ -59,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [localwatchListarr count];
+    return [[stockData singleton].watchListStkCodeArr count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,7 +77,7 @@
     [quantityFormatter setGroupingSeparator:@","];
     [quantityFormatter setGroupingSize:3];
     [quantityFormatter setGeneratesDecimalNumbers:YES];
-    NSString *tempString = [localwatchListarr objectAtIndex:indexPath.row];
+    NSString *tempString = [[stockData singleton].watchListStkCodeArr objectAtIndex:indexPath.row];
     NSMutableDictionary *temp =[[[stockData singleton] qcFeedDataDict] objectForKey:tempString];
     
     cell.lblStkName.text =[temp objectForKey:@"38"];
@@ -151,16 +149,30 @@
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
 {
-    if ([localwatchListarr containsObject:cell.stkCode]) {
+    if ([[stockData singleton].watchListStkCodeArr containsObject:cell.stkCode]) {
         
-     
+        [[stockData singleton].watchListStkCodeArr removeObject:cell.stkCode];
 
-        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
-                                                           objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
-        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            [[VertxConnectionManager singleton]getRemoteWatchlistArray];
-
-        }];
+        selectedRow = -1;
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+        [stockData singleton].remoteWatchlistid = [NSMutableArray array];
+        [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error)
+            {
+                
+                for (PFObject *obj in objects)
+                {
+                    [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
+                    [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
+                    
+                }
+                PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
+                                                                   objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
+                [object deleteInBackground];
+            }}];
+        
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
@@ -181,15 +193,11 @@
         [alert addAction:okbtn];
         
         [self presentViewController:alert animated:YES completion:nil];
+        [_tableview reloadData];
     }
 }
 
--(void)didReceiveStockDetails
-{
-    selectedRow = -1;
-    localwatchListarr = [stockData singleton].remoteWatchlistStkCodeArr;
-    [_tableview reloadData];
-}
+
 
 
 @end
