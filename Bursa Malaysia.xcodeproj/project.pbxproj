@@ -194,9 +194,9 @@
 		800B1ACB1CDC512B00EA1C3D = {
 			isa = PBXGroup;
 			children = (
-				800B1AD61CDC512B00EA1C3D /* Yahoo Quotes */,
-				800B1AF01CDC512B00EA1C3D /* Yahoo QuotesTests */,
-				800B1AFB1CDC512B00EA1C3D /* Yahoo QuotesUITests */,
+				800B1AD61CDC512B00EA1C3D /* Bursa Malaysia */,
+				800B1AF01CDC512B00EA1C3D /* Bursa MalaysiaTests */,
+				800B1AFB1CDC512B00EA1C3D /* Bursa MalaysiaUITests */,
 				800B1AD51CDC512B00EA1C3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		800B1AD61CDC512B00EA1C3D /* Yahoo Quotes */ = {
+		800B1AD61CDC512B00EA1C3D /* Bursa Malaysia */ = {
 			isa = PBXGroup;
 			children = (
 				800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */,
@@ -235,6 +235,7 @@
 				800B1AE81CDC512B00EA1C3D /* Info.plist */,
 				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
 			);
+			name = "Bursa Malaysia";
 			path = "Yahoo Quotes";
 			sourceTree = "<group>";
 		};
@@ -256,21 +257,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		800B1AF01CDC512B00EA1C3D /* Yahoo QuotesTests */ = {
+		800B1AF01CDC512B00EA1C3D /* Bursa MalaysiaTests */ = {
 			isa = PBXGroup;
 			children = (
 				800B1AF11CDC512B00EA1C3D /* Yahoo_QuotesTests.m */,
 				800B1AF31CDC512B00EA1C3D /* Info.plist */,
 			);
+			name = "Bursa MalaysiaTests";
 			path = "Yahoo QuotesTests";
 			sourceTree = "<group>";
 		};
-		800B1AFB1CDC512B00EA1C3D /* Yahoo QuotesUITests */ = {
+		800B1AFB1CDC512B00EA1C3D /* Bursa MalaysiaUITests */ = {
 			isa = PBXGroup;
 			children = (
 				800B1AFC1CDC512B00EA1C3D /* Yahoo_QuotesUITests.m */,
 				800B1AFE1CDC512B00EA1C3D /* Info.plist */,
 			);
+			name = "Bursa MalaysiaUITests";
 			path = "Yahoo QuotesUITests";
 			sourceTree = "<group>";
 		};
@@ -403,6 +406,7 @@
 				TargetAttributes = {
 					800B1AD31CDC512B00EA1C3D = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 7FRCTE6LVT;
 					};
 					800B1AEC1CDC512B00EA1C3D = {
 						CreatedOnToolsVersion = 7.3;
@@ -635,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
@@ -649,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
+				PROVISIONING_PROFILE = "48ad341b-d10a-495f-92a5-28ebdc8d7105";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -657,6 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Yahoo",
@@ -671,6 +678,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
+				PROVISIONING_PROFILE = "92a8d8a2-3907-4a64-9d9c-3a52923e2375";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
