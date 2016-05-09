@@ -254,12 +254,12 @@
 				804DDD1C1CE07479004991D4 /* Watchlist */,
 				800B1B131CDC88F500EA1C3D /* SocketRocket */,
 				804DDD1D1CE07489004991D4 /* MarketMovers */,
-				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
 				800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */,
 				800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */,
 				800B1AE01CDC512B00EA1C3D /* Main.storyboard */,
 				800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */,
 				800B1AE31CDC512B00EA1C3D /* Assets.xcassets */,
+				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
 			);
 			name = "Bursa Malaysia";
 			path = "Yahoo Quotes";
