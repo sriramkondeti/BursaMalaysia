@@ -269,10 +269,10 @@
 			isa = PBXGroup;
 			children = (
 				800B1AE81CDC512B00EA1C3D /* Info.plist */,
-				804DDCE61CE04034004991D4 /* Bolts.framework */,
-				804DDCE71CE04034004991D4 /* Parse.framework */,
 				80CEB5B01CDDF7F7003F6368 /* libsqlite3.tbd */,
 				80CEB5AE1CDDF7E4003F6368 /* libz.tbd */,
+				804DDCE61CE04034004991D4 /* Bolts.framework */,
+				804DDCE71CE04034004991D4 /* Parse.framework */,
 				80CEB5AC1CDDF7D2003F6368 /* SystemConfiguration.framework */,
 				80CEB5AA1CDDF7C6003F6368 /* StoreKit.framework */,
 				80CEB5A81CDDF7A3003F6368 /* QuartzCore.framework */,
