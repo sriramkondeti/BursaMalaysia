@@ -206,6 +206,7 @@
     [alert addAction:cancelAction];
 
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        [textField setKeyboardType:UIKeyboardTypeDecimalPad];
         textField.placeholder = @"Set Price Alert";
     }];
     [alert.view  setNeedsLayout] ;
