@@ -59,8 +59,6 @@
 		804DDD151CE04423004991D4 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 804DDCFF1CE04423004991D4 /* iTunesArtwork.png */; };
 		804DDD161CE04423004991D4 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 804DDD001CE04423004991D4 /* iTunesArtwork@2x.png */; };
 		804DDD171CE04423004991D4 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 804DDD011CE04423004991D4 /* README.md */; };
-		8073B5081CDF73D600D835E0 /* iphone-6s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8073B5071CDF73D600D835E0 /* iphone-6s.jpg */; };
-		8073B50A1CDF74D400D835E0 /* D0tyQgD.png in Resources */ = {isa = PBXBuildFile; fileRef = 8073B5091CDF74D400D835E0 /* D0tyQgD.png */; };
 		8073B50E1CDF77E000D835E0 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 8073B50D1CDF77E000D835E0 /* Launch.png */; };
 		80A27A061CDD05B000002F9F /* SearchDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */; };
 		80CEB5841CDD9196003F6368 /* quotes_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5821CDD9196003F6368 /* quotes_enable.png */; };
@@ -165,8 +163,6 @@
 		804DDCFF1CE04423004991D4 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		804DDD001CE04423004991D4 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		804DDD011CE04423004991D4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8073B5071CDF73D600D835E0 /* iphone-6s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "iphone-6s.jpg"; path = "../../../Downloads/iphone-6s.jpg"; sourceTree = "<group>"; };
-		8073B5091CDF74D400D835E0 /* D0tyQgD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D0tyQgD.png; sourceTree = "<group>"; };
 		8073B50D1CDF77E000D835E0 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
 		80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayViewController.h; sourceTree = "<group>"; };
 		80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayViewController.m; sourceTree = "<group>"; };
@@ -321,8 +317,6 @@
 			children = (
 				804DDCEA1CE04423004991D4 /* ios */,
 				8073B50D1CDF77E000D835E0 /* Launch.png */,
-				8073B5091CDF74D400D835E0 /* D0tyQgD.png */,
-				8073B5071CDF73D600D835E0 /* iphone-6s.jpg */,
 				80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */,
 				80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */,
 				80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */,
@@ -538,10 +532,8 @@
 				804DDCD41CE038D0004991D4 /* ButtonChg_Red70x30.png in Resources */,
 				804DDD0C1CE04423004991D4 /* Icon-Small@2x.png in Resources */,
 				800B1AE41CDC512B00EA1C3D /* Assets.xcassets in Resources */,
-				8073B5081CDF73D600D835E0 /* iphone-6s.jpg in Resources */,
 				804DDD071CE04423004991D4 /* Icon-60@3x.png in Resources */,
 				804DDCD21CE038D0004991D4 /* ButtonChg_Grn70x30.png in Resources */,
-				8073B50A1CDF74D400D835E0 /* D0tyQgD.png in Resources */,
 				804DDD121CE04423004991D4 /* Icon-Small-50@2x.png in Resources */,
 				804DDD151CE04423004991D4 /* iTunesArtwork.png in Resources */,
 				80CEB5921CDDCA07003F6368 /* Button_blue_normal.png in Resources */,
