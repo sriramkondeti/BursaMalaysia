@@ -65,7 +65,7 @@
 		80CEB5851CDD9196003F6368 /* quotes_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */; };
 		80CEB5881CDD91CD003F6368 /* watchlist_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5861CDD91CD003F6368 /* watchlist_enable.png */; };
 		80CEB5891CDD91CD003F6368 /* watchlist_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */; };
-		80CEB58C1CDD9964003F6368 /* WatchlistViewCOntroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */; };
+		80CEB58C1CDD9964003F6368 /* WatchlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CEB58B1CDD9964003F6368 /* WatchlistViewController.m */; };
 		80CEB5911CDDCA07003F6368 /* Button_blue_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */; };
 		80CEB5921CDDCA07003F6368 /* Button_blue_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */; };
 		80CEB5931CDDCA07003F6368 /* Button_blue_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */; };
@@ -170,8 +170,8 @@
 		80CEB5831CDD9196003F6368 /* quotes_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quotes_enable@2x.png"; sourceTree = "<group>"; };
 		80CEB5861CDD91CD003F6368 /* watchlist_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchlist_enable.png; sourceTree = "<group>"; };
 		80CEB5871CDD91CD003F6368 /* watchlist_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchlist_enable@2x.png"; sourceTree = "<group>"; };
-		80CEB58A1CDD9964003F6368 /* WatchlistViewCOntroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewCOntroller.h; sourceTree = "<group>"; };
-		80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewCOntroller.m; sourceTree = "<group>"; };
+		80CEB58A1CDD9964003F6368 /* WatchlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewController.h; sourceTree = "<group>"; };
+		80CEB58B1CDD9964003F6368 /* WatchlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewController.m; sourceTree = "<group>"; };
 		80CEB58D1CDDCA07003F6368 /* Button_blue_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_blue_click.png; sourceTree = "<group>"; };
 		80CEB58E1CDDCA07003F6368 /* Button_blue_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_blue_normal.png; sourceTree = "<group>"; };
 		80CEB58F1CDDCA07003F6368 /* Button_blue_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button_blue_click@2x.png"; sourceTree = "<group>"; };
@@ -248,26 +248,18 @@
 		800B1AD61CDC512B00EA1C3D /* Bursa Malaysia */ = {
 			isa = PBXGroup;
 			children = (
+				804DDD181CE06BDE004991D4 /* FeedAPI */,
+				804DDD1A1CE06C5D004991D4 /* StockDataModel */,
+				804DDD1B1CE071BA004991D4 /* Search */,
+				804DDD1C1CE07479004991D4 /* Watchlist */,
+				800B1B131CDC88F500EA1C3D /* SocketRocket */,
+				804DDD1D1CE07489004991D4 /* MarketMovers */,
+				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
 				800B1ADA1CDC512B00EA1C3D /* AppDelegate.h */,
 				800B1ADB1CDC512B00EA1C3D /* AppDelegate.m */,
-				800B1B281CDC8A4300EA1C3D /* VertxConnectionManager.h */,
-				800B1B291CDC8A4300EA1C3D /* VertxConnectionManager.m */,
-				800B1B2B1CDCAF4C00EA1C3D /* stockData.h */,
-				800B1B2C1CDCAF4C00EA1C3D /* stockData.m */,
 				800B1AE01CDC512B00EA1C3D /* Main.storyboard */,
-				80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */,
-				80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */,
-				80CEB58A1CDD9964003F6368 /* WatchlistViewCOntroller.h */,
-				80CEB58B1CDD9964003F6368 /* WatchlistViewCOntroller.m */,
-				800B1B2E1CDCB29000EA1C3D /* QuoteViewController.h */,
-				800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */,
-				800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */,
-				800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */,
-				800B1AE31CDC512B00EA1C3D /* Assets.xcassets */,
 				800B1AE51CDC512B00EA1C3D /* LaunchScreen.storyboard */,
-				800B1B131CDC88F500EA1C3D /* SocketRocket */,
-				800B1AE81CDC512B00EA1C3D /* Info.plist */,
-				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
+				800B1AE31CDC512B00EA1C3D /* Assets.xcassets */,
 			);
 			name = "Bursa Malaysia";
 			path = "Yahoo Quotes";
@@ -276,6 +268,7 @@
 		800B1AD71CDC512B00EA1C3D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				800B1AE81CDC512B00EA1C3D /* Info.plist */,
 				804DDCE61CE04034004991D4 /* Bolts.framework */,
 				804DDCE71CE04034004991D4 /* Parse.framework */,
 				80CEB5B01CDDF7F7003F6368 /* libsqlite3.tbd */,
@@ -398,6 +391,53 @@
 				804DDCF71CE04423004991D4 /* Icon-Small@3x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		804DDD181CE06BDE004991D4 /* FeedAPI */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B281CDC8A4300EA1C3D /* VertxConnectionManager.h */,
+				800B1B291CDC8A4300EA1C3D /* VertxConnectionManager.m */,
+			);
+			name = FeedAPI;
+			sourceTree = "<group>";
+		};
+		804DDD1A1CE06C5D004991D4 /* StockDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B2B1CDCAF4C00EA1C3D /* stockData.h */,
+				800B1B2C1CDCAF4C00EA1C3D /* stockData.m */,
+			);
+			name = StockDataModel;
+			sourceTree = "<group>";
+		};
+		804DDD1B1CE071BA004991D4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				80A27A041CDD05B000002F9F /* SearchDisplayViewController.h */,
+				80A27A051CDD05B000002F9F /* SearchDisplayViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		804DDD1C1CE07479004991D4 /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				80CEB58A1CDD9964003F6368 /* WatchlistViewController.h */,
+				80CEB58B1CDD9964003F6368 /* WatchlistViewController.m */,
+			);
+			name = Watchlist;
+			sourceTree = "<group>";
+		};
+		804DDD1D1CE07489004991D4 /* MarketMovers */ = {
+			isa = PBXGroup;
+			children = (
+				800B1B2E1CDCB29000EA1C3D /* QuoteViewController.h */,
+				800B1B2F1CDCB29000EA1C3D /* QuoteViewController.m */,
+				800B1B451CDCBAFF00EA1C3D /* stockTableDataViewCell.h */,
+				800B1B461CDCBAFF00EA1C3D /* stockTableDataViewCell.m */,
+			);
+			name = MarketMovers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,7 +618,7 @@
 				80A27A061CDD05B000002F9F /* SearchDisplayViewController.m in Sources */,
 				800B1B2D1CDCAF4C00EA1C3D /* stockData.m in Sources */,
 				800B1B471CDCBAFF00EA1C3D /* stockTableDataViewCell.m in Sources */,
-				80CEB58C1CDD9964003F6368 /* WatchlistViewCOntroller.m in Sources */,
+				80CEB58C1CDD9964003F6368 /* WatchlistViewController.m in Sources */,
 				800B1B1A1CDC88F600EA1C3D /* Makefile in Sources */,
 				800B1B301CDCB29000EA1C3D /* QuoteViewController.m in Sources */,
 				804DDD171CE04423004991D4 /* README.md in Sources */,

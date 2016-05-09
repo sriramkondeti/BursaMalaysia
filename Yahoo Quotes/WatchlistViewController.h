@@ -10,6 +10,7 @@
 #import "stockTableDataViewCell.h"
 
 @interface WatchlistViewCOntroller : UIViewController<stockTableDataViewCellDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @end

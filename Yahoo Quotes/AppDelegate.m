@@ -20,39 +20,43 @@
 
 @implementation AppDelegate
 
+#pragma mark - App Lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    vcm = [VertxConnectionManager singleton];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:255.0f/255.0f green:35.0f/255.0f blue:26.0f/255.0f alpha:1.000]];
+    
     [Parse setApplicationId:@"6vR2BlU29Y9BRdzZKM8iKGZnRpc8hQIREERQ3nOv"
-                  clientKey:@"6ssE0k34QQCbcyshFyvXjWv9WvmJMM5sXJ1KU6ph"];
-
+                  clientKey:@"6ssE0k34QQCbcyshFyvXjWv9WvmJMM5sXJ1KU6ph"];//Parse Cloud Authorisation
+    
+    vcm = [VertxConnectionManager singleton];//Intitate Vertx - A Singleton object to connect to Bursa Malaysia API.
+    
+    //Global Apperance
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:255.0f/255.0f green:35.0f/255.0f blue:26.0f/255.0f alpha:1.000]];
+    
     //Navigation Bar - Title Color and Font Size
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-Bold" size:18.0f], NSFontAttributeName, nil]];
+    
     //Navigation Bar - BarButtonItem Color
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
     //UIBarButtonItem - Color and Font Size
     [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
                                                           [UIFont fontWithName:@"Helvetica-Bold" size:14.0f],
                                                           NSFontAttributeName,
                                                           nil] forState:UIControlStateNormal];
-    
-    
+    //Normal state
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        [UIColor grayColor], NSForegroundColorAttributeName,
                                                        [UIFont fontWithName:@"Helvetica-Bold" size:14.0f],
                                                        NSFontAttributeName,
                                                        nil] forState:UIControlStateNormal];
-    
+    //Selected state
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        [UIColor whiteColor], NSForegroundColorAttributeName,
                                                        [UIFont fontWithName:@"Helvetica-Bold" size:14.0f], NSFontAttributeName,
                                                        nil] forState:UIControlStateSelected];
-    
-    
- 
+    //Watchlist Data saved in the cloud
     [[VertxConnectionManager singleton]getRemoteWatchlistArray];
      
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
@@ -76,17 +80,7 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
-}
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    
-}
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -110,5 +104,18 @@
     
    
      }
-
+#pragma mark - Push Notification
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];//Send Current Device ID to Parse
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    
+}
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
 @end

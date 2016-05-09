@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "stockTableDataViewCell.h"
 
-@interface SearchDisplayViewController : UITableViewController<UITableViewDelegate,stockTableDataViewCellDelegate >
+@interface SearchDisplayViewController : UITableViewController<UITableViewDelegate,stockTableDataViewCellDelegate>
+
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *searchDisplayTableView;
 

@@ -10,15 +10,14 @@
 
 @interface stockData : NSObject
 
-@property (nonatomic, retain) NSMutableArray *getGainersStkCodeArr;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *getLosersStkCodeArr;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *getActiveStkCodeArr;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *watchListStkCodeArr;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-
-@property (nonatomic, retain) NSMutableDictionary *qcFeedDataDict;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *remoteWatchlistStkCodeArr;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *remoteWatchlistid;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
-@property (nonatomic, retain) NSMutableArray *remoteStockPrice;      // Major Feed Data store and modify here. Eg:QuoteScreen, Stock Detail and they update constantsly (Real time)
+@property (nonatomic, retain) NSMutableArray *getGainersStkCodeArr;      
+@property (nonatomic, retain) NSMutableArray *getLosersStkCodeArr;      
+@property (nonatomic, retain) NSMutableArray *getActiveStkCodeArr;      
+@property (nonatomic, retain) NSMutableArray *watchListStkCodeArr;      
+@property (nonatomic, retain) NSMutableDictionary *qcFeedDataDict;      
+@property (nonatomic, retain) NSMutableArray *remoteWatchlistStkCodeArr;      
+@property (nonatomic, retain) NSMutableArray *remoteWatchlistid;      
+@property (nonatomic, retain) NSMutableArray *remoteStockPrice;      
 
 
 +(stockData *) singleton;

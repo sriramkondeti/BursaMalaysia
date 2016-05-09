@@ -23,13 +23,13 @@
     BOOL incomingEnd;
     BOOL incomingHasNext;
     NSString *keepQid;
-    NSMutableDictionary *responseDict; // Use for NSNotification Center.
+    NSMutableDictionary *responseDict;
     NSMutableArray *sortedresults;
     NSString *SearchString;
-
-
 }
 @end
+
+#pragma mark - Connect to Vertx (Websocket)
 
 @implementation VertxConnectionManager
 
@@ -38,10 +38,9 @@
     static VertxConnectionManager * singleton = nil;
     @synchronized(self)
     {
+        //Singleton Object initialization
         if(!singleton)
             singleton = [[VertxConnectionManager alloc]init];
-       
-
     }
     return singleton;
     
@@ -51,38 +50,39 @@
 {
     if(self =[super init])
     {
-        [self connect];
+        [self connect];//Connect
     }
     return self;
 }
 
 - (void)connect
 {
+        //Use Vertx(websocket) to Connect to Bursa Malaysia Feed API
         _webSocket.delegate = nil;
         [_webSocket close];
         _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"wss://nogfv2.itradecimb.com.my/eventbus/websocket"]]]];
         _webSocket.delegate = self;
         [_webSocket open];
 }
-
-- (void)reconnect
-{
-    [self connect]; //reconnect
-    
-}
 - (void) openWebSocket{
-    [_webSocket open];
+    [_webSocket open];//Open Websocket Connection
 }
 
 -(void) KeepAliveCommand
 {
     _msg =@".";
-    [_webSocket send:_msg];
+    [_webSocket send:_msg];//Send to Websocket every 20 secs to keep connection Alive.
     
+}
+
+- (void)reconnect
+{
+    [self connect]; //Reconnect
 }
 
 - (void)vertxLogin
 {
+    //Login to Vertx to start a session.
     cmdCall = @"LOGIN";
     NSMutableDictionary *sendMessage = [[NSMutableDictionary alloc]init];
     [sendMessage setObject:@"session" forKey:@"action"];
@@ -90,54 +90,11 @@
     [sendMessage setObject:cmdCall forKey:@"eventId"];
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:sendMessage
                                                        options:NSJSONWritingPrettyPrinted error: nil];
-
     [_webSocket send:jsonData];
     
-    
 }
 
--(void)getRemoteWatchlistArray
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
-    [stockData singleton].remoteStockPrice =[NSMutableArray array];
-    [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
-    [stockData singleton].remoteWatchlistid = [NSMutableArray array];
-
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error)
-        {
-            
-            for (PFObject *obj in objects)
-            {
-                [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
-                [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
-                if (obj[@"Price"])
-                [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
-            }
-            static dispatch_once_t once;
-            dispatch_once(&once, ^ {
-                [stockData singleton].watchListStkCodeArr = [stockData singleton].remoteWatchlistStkCodeArr;
-
-            [self getWatchlistDetails];
-            });
-        }
-    }
-      ];
-}
-
-- (void)getGainers{
-    _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"change\", \"direction\" : \"DESC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getGainers\" }"];
-    
-    [_webSocket send:_msg];
-
-}
-
--(void)getLosers{
-    _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"change\", \"direction\" : \"ASC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getLosers\" }"];
-    
-    [_webSocket send:_msg];
-
-}
+#pragma mark - Get Market Movers
 
 -(void)getActive
 {
@@ -146,9 +103,51 @@
     [_webSocket send:_msg];
 }
 
+- (void)getGainers{
+    _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"change\", \"direction\" : \"DESC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getGainers\" }"];
+    
+    [_webSocket send:_msg];
+    
+}
+
+-(void)getLosers{
+    _msg = [NSString stringWithFormat:@"{ \"filter\" : [ { \"field\" : \"38\", \"value\" : \"\", \"comparison\" : \"ne\" }, { \"field\" : \"path\", \"value\" : \"|10|\" }, { \"field\" : \"path\", \"value\" : \"\" } ], \"coll\" : [ \"05\", \"07\" ], \"start\" : 0, \"column\" : [ \"61\", \"55\", \"62\", \"170\", \"56\", \"70\", \"156\", \"57\", \"71\", \"171\", \"241\", \"58\", \"72\", \"59\", \"80\", \"172\", \"123\", \"242\", \"81\", \"100004\", \"68\", \"173\", \"180\", \"82\", \"69\", \"90\", \"174\", \"181\", \"91\", \"237\", \"78\", \"92\", \"182\", \"79\", \"238\", \"183\", \"127\", \"88\", \"change\", \"89\", \"184\", \"98\", \"101\", \"99\", \"changePer\", \"33\", \"41\", \"103\", \"50\", \"51\", \"37\", \"38\", \"60\" ], \"action\" : \"query\", \"sort\" : [ { \"property\" : \"change\", \"direction\" : \"ASC\" } ], \"limit\" : 20, \"exch\" : \"KL\", \"eventId\" : \"getLosers\" }"];
+    
+    [_webSocket send:_msg];
+    
+}
+
+#pragma mark - Get Watchlist Data
+
+-(void)getRemoteWatchlistArray
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+    [stockData singleton].remoteStockPrice =[NSMutableArray array];
+    [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
+    [stockData singleton].remoteWatchlistid = [NSMutableArray array];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            for (PFObject *obj in objects)
+            {
+                [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
+                [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
+                if (obj[@"Price"])
+                    [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
+            }
+            static dispatch_once_t once;
+            dispatch_once(&once, ^ {
+                [stockData singleton].watchListStkCodeArr = [stockData singleton].remoteWatchlistStkCodeArr;
+                [self getWatchlistDetails];
+            });
+        }
+    }];
+}
+
 -(void)getWatchlistDetails
 {
-    
+    //Send Custom Stock Code to Vertxt to get Feed data
     
     NSArray *collumnArr = [NSArray arrayWithObjects:@"38",@"33",@"98",@"51", nil];
     NSMutableDictionary *sendMessage = [[NSMutableDictionary alloc]init];
@@ -170,25 +169,24 @@
     [filterArr addObject:[filterDict copy]];
     
     [sendMessage setObject:filterArr forKey:@"filter"];
-     [sendMessage setObject:@"vertxGetDetails" forKey:@"eventId"];
+    [sendMessage setObject:@"vertxGetDetails" forKey:@"eventId"];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:sendMessage
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:nil];
-    [_webSocket send:jsonData];
-
+    [_webSocket send:jsonData];//Send Message as json Request.
+    
 }
 
+#pragma mark - Vertx Search
 
 - (void)vertxSearch : (NSString *)str
 {
-    
- 
-    
     _msg = [NSString stringWithFormat:@"{\"action\":\"query\",\"coll\":[\"05\"],\"start\":0,\"limit\":22,\"column\":[\"38\",\"36\",\"98\",\"48\",\"51\",\"134\",\"135\",\"50\",\"40\",\"35\",\"39\",\"139\",\"103\",\"238\",\"56\",\"57\",\"101\",\"153\",\"156\",\"49\",\"245\",\"140\",\"141\",\"142\",\"244\",\"243\",\"55\",\"52\",\"104\",\"99\",\"132\",\"54\",\"102\",\"41\",\"buyRate\",\"33\",\"58\",\"68\",\"78\",\"88\",\"change\",\"changePer\",\"170\",\"171\",\"172\",\"173\",\"174\",\"58\",\"59\",\"60\",\"61\",\"62\",\"68\",\"69\",\"70\",\"71\",\"72\",\"88\",\"89\",\"90\",\"91\",\"92\",\"78\",\"79\",\"80\",\"81\",\"82\",\"180\",\"181\",\"182\",\"183\",\"184\"],\"filter\":[{\"field\":\"38\",\"value\":\"\",\"type\":\"string\",\"comparison\":\"ne\"},{\"field\":\"131\",\"value\":[\"MY\",\"KL\",\"JKD\",\"SID\",\"BKD\",\"OD\",\"ND\",\"AD\",\"HKD\"],\"comparison\":\"in\"},{\"field\":\"path\",\"value\":\"|10|\"},{\"field\":\"38\",\"value\":\"(?i:^%@[\\\\s\\\\S]*)\",\"type\":\"string\",\"comparison\":\"regex\"}],\"sort\":[{\"property\":\"stkCode\",\"direction\":\"ASC\"}],\"eventId\":\"vertxSearch\"}",str];
-    
+
     [_webSocket send:_msg];
 }
 
+#pragma mark - Websocket Delegate
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
@@ -201,8 +199,13 @@
     incomingHasNext = [[parsedObject objectForKey:@"hasNext"]boolValue];
     incomingEnd     = [[parsedObject objectForKey:@"end"]boolValue];
     
+    //Pay attention on data responses, there have several type of the response.Categorized by.
+    //Differeniate Data Call (EventID).
+    //if has next, upcoming data just have data and QID.
+    //Every incoming have FeedType.
+    //incomingEventId is set during send msg to server (it can be any id or string, to identify the response from server).
     
-    if([incomingType isEqualToString:@"q"])
+    if([incomingType isEqualToString:@"q"]) //'q' for Query to vertx
     {
     if(incomingEventId) //Header coming in
     {
@@ -220,19 +223,17 @@
         
         if(incomingEnd)
         {
-            
             responseDict= [NSMutableDictionary dictionaryWithObjectsAndKeys:[[stockData singleton]getGainersStkCodeArr],@"sortedresults", nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetGainers" object:self userInfo:responseDict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetGainers" object:self userInfo:responseDict];//Send Notification that the data is received.
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;
             sortedresults=nil;
-            
             return;
         }
         
-        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]initWithDictionary:[parsedObject objectForKey:@"data"]]; //**important to set it to MutableDict for mod when receive new data.
-        [[[stockData singleton]qcFeedDataDict] setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]]; //For QCDataCenter
+        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]initWithDictionary:[parsedObject objectForKey:@"data"]]; //**important to set it to MutableDict for adding new data when receive.
+        [[[stockData singleton]qcFeedDataDict] setObject:tempDict forKey:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]]; //For Saving Feed info of all stocks.
         [[[stockData singleton]getGainersStkCodeArr] addObject:[[parsedObject objectForKey:@"data"]objectForKey:@"33"]];
         tempDict = nil;
     }
@@ -243,17 +244,14 @@
             responseDict = [NSMutableDictionary dictionary];
             sortedresults = [NSMutableArray array];
         }
-        
-        
         if(incomingEnd)
         {
             responseDict= [NSMutableDictionary dictionaryWithObjectsAndKeys:[[stockData singleton]getLosersStkCodeArr],@"sortedresults", nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetLosers" object:self userInfo:responseDict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetLosers" object:self userInfo:responseDict];//Send Notification that the data is received.
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;
             sortedresults=nil;
-            
             return;
         }
         
@@ -275,7 +273,7 @@
         if(incomingEnd)
         {
             responseDict= [NSMutableDictionary dictionaryWithObjectsAndKeys:[[stockData singleton]getActiveStkCodeArr],@"sortedresults", nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetActive" object:self userInfo:responseDict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishedgetActive" object:self userInfo:responseDict];//Send Notification that the data is received.
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;
@@ -298,7 +296,7 @@
         {
             NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
             if ([responseDict count]>0)
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"doneVertxSearch" object:self userInfo:notificationData];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"doneVertxSearch" object:self userInfo:notificationData];//Send Notification that the data is received.
             responseDict = nil;
             incomingHasNext = false;
             keepQid = nil;
@@ -318,9 +316,8 @@
         {
             responseDict = nil;
             NSMutableDictionary *notificationData = [NSMutableDictionary dictionaryWithDictionary:responseDict];
-
             [[NSNotificationCenter defaultCenter] postNotificationName:@"didReceiveStockDetails" object:self userInfo:notificationData];
-
+            //Send Notification that the data is received.
             incomingHasNext = false;
             keepQid = nil;
             return;
@@ -334,7 +331,6 @@
     }
 }
 
-
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     [self vertxLogin];
@@ -342,17 +338,18 @@
     [self getGainers];
     [self getLosers];
     [self getActive];
-
-    
 }
+
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
     _webSocket = nil;
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
     
 }
+
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean{
     _webSocket = nil;
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
 }
+
 @end

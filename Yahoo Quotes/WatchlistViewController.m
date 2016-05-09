@@ -14,9 +14,10 @@
 @implementation WatchlistViewCOntroller
 {
     int selectedRow;
-    
 
 }
+
+#pragma mark - View lifecycle
 
 -(void)viewDidLoad
 {
@@ -30,55 +31,64 @@
     [super viewWillAppear:animated];
     selectedRow = -1;
     [_tableview reloadData];
-
 }
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-
-        if (selectedRow == indexPath.row)
-            return 88;
-        
-        else
-            return 44;
-
-    
-}
-
+#pragma mark - Tableview Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-
 {
     if ([stockData singleton].watchListStkCodeArr.count)
     {
         _tableview .backgroundView = nil;
         _tableview.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         return 1;
-        
     }
     else
     {
         // Display a message when the table is empty
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height)];
-        
         messageLabel.text = @"Add Items to Watchlist.";
         messageLabel.textColor = [UIColor lightGrayColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;
         messageLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
         [messageLabel sizeToFit];
-        
-        
         _tableview.backgroundView = messageLabel;
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         return  0;
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if (selectedRow == indexPath.row)
+        return 88;//Expand Row
+    
+    else
+        return 44;
+    
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[stockData singleton].watchListStkCodeArr count];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,14 +110,13 @@
     [quantityFormatter setGeneratesDecimalNumbers:YES];
     NSString *tempString = [[stockData singleton].watchListStkCodeArr objectAtIndex:indexPath.row];
     NSMutableDictionary *temp =[[[stockData singleton] qcFeedDataDict] objectForKey:tempString];
-    
-    cell.lblStkName.text =[temp objectForKey:@"38"];
+    cell.lblStkName.text =[temp objectForKey:@"38"];//Stockname
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.delegate = self;
-    cell.stkCode = [temp objectForKey:@"33"];
+    cell.delegate = self;//Set Delegate
+    cell.stkCode = [temp objectForKey:@"33"];//Stockcode
     [cell.btnWatchlist setTitle:@"Remove" forState:UIControlStateNormal];
     value = [temp objectForKey:@"98"] ;
-    cell.lblPrice.text =  [priceFormatter stringFromNumber:value];
+    cell.lblPrice.text =  [priceFormatter stringFromNumber:value];//Stock Price
     float diffval = [[temp objectForKey:@"98"] floatValue] -[[temp objectForKey:@"51"]floatValue];
     if (diffval>0)
     {
@@ -121,23 +130,20 @@
     }
     else
         cell.lblPrice.textColor = [UIColor darkGrayColor];
-   
-            value = [temp objectForKey:@"51"] ;
-            cell.lblValue.text = [quantityFormatter stringFromNumber:value];
-    
+    value = [temp objectForKey:@"51"] ;
+    cell.lblValue.text = [quantityFormatter stringFromNumber:value];//Last adjusted closing price
     return cell;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        
+    //Expand Rows
         if (selectedRow == indexPath.row) {
             selectedRow = -1;
-            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade ];
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             return;
         }
-        
         if (selectedRow !=-1) {
             NSIndexPath *prevPath = [NSIndexPath indexPathForRow:selectedRow inSection:0];
             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:prevPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -145,41 +151,21 @@
         selectedRow = (int)indexPath.row;
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
 }
 
-    
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Remove seperator inset
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    // Prevent the cell from inheriting the Table View's margin settings
-    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-        [cell setPreservesSuperviewLayoutMargins:NO];
-    }
-    
-    // Explictly set your cell's layout margins
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
+#pragma mark - Cell Button Delegate
 
 -(void) priceAlertBtnPressed:(stockTableDataViewCell *)cell
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Price Alert" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     selectedRow = -1;
     UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        
         PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
         [stockData singleton].remoteWatchlistid = [NSMutableArray array];
         [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
         [stockData singleton].remoteStockPrice = [NSMutableArray array];
-        
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            //Sync Local Data with Cloud data.
             if (!error)
             {
                 for (PFObject *obj in objects)
@@ -189,88 +175,68 @@
                     if (obj[@"Price"])
                         [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
                 }
+                //Get Object ID
                 PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
                                                                    objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
         object[@"Price"] = [NSString stringWithFormat:@"%.3f",alert.textFields.firstObject.text.floatValue];
-        [object saveInBackground];
-        [[VertxConnectionManager singleton]getRemoteWatchlistArray];
+        [object saveInBackground];//Save Price alert of Object in Cloud.
+        [[VertxConnectionManager singleton]getRemoteWatchlistArray];//Update Local data
             }
         }];
         
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        
     }];
-    
     [alert addAction:doneAction];
     [alert addAction:cancelAction];
-
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         [textField setKeyboardType:UIKeyboardTypeDecimalPad];
         textField.placeholder = @"Set Price Alert";
     }];
     [alert.view  setNeedsLayout] ;
-
-    [self presentViewController:alert animated:YES completion:nil]; 
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)addToWatclistBtnPressed:(stockTableDataViewCell *)cell
 {
     if ([[stockData singleton].watchListStkCodeArr containsObject:cell.stkCode]) {
         
-        [[stockData singleton].watchListStkCodeArr removeObject:cell.stkCode];
-
-        selectedRow = -1;
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];
+        [[stockData singleton].watchListStkCodeArr removeObject:cell.stkCode];//Remove Locally.
+        selectedRow = -1;//Invalidate Row selected
+        PFQuery *query = [PFQuery queryWithClassName:@"Watchlist"];//Sync Local Data with Cloud data.
         [stockData singleton].remoteWatchlistid = [NSMutableArray array];
         [stockData singleton].remoteWatchlistStkCodeArr = [NSMutableArray array];
         [stockData singleton].remoteStockPrice = [NSMutableArray array];
-
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error)
             {
-                
                 for (PFObject *obj in objects)
                 {
                     [[stockData singleton].remoteWatchlistStkCodeArr addObject:  obj[@"Stockcode"]];
                     [[stockData singleton].remoteWatchlistid addObject:obj.objectId];
                     if (obj[@"Price"])
                     [[stockData singleton].remoteStockPrice addObject:  obj[@"Price"]];
-
-                    
                 }
+                //Get Object ID
                 PFObject *object = [PFObject objectWithoutDataWithClassName:@"Watchlist"
                                                                    objectId:[[[stockData singleton]remoteWatchlistid]objectAtIndex:[[[stockData singleton]remoteWatchlistStkCodeArr]indexOfObject:cell.stkCode]]];
-                [object deleteInBackground];
+                [object deleteInBackground];//Delete object iin the cloud.
                 [[VertxConnectionManager singleton]getRemoteWatchlistArray];
             }}];
-        
-        
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"Watchlist"
                                       message:[NSString stringWithFormat:@"%@ has been Removed from Watchlist.", cell.lblStkName.text]
                                       preferredStyle:UIAlertControllerStyleAlert];
-        
         UIAlertAction* okbtn = [UIAlertAction
                                 actionWithTitle:@"Done"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {
-                                    
-                                    
-                                    
                                 }];
-        
-        
         [alert addAction:okbtn];
-        
         [self presentViewController:alert animated:YES completion:nil];
         [_tableview reloadData];
     }
 }
-
-
-
 
 @end

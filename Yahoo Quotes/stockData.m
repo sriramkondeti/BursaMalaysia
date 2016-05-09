@@ -13,6 +13,7 @@
 
 + (stockData *)singleton
 {
+    //Intialize as Singleton.
     static stockData * singleton = nil;
     @synchronized(self)
     {
@@ -27,18 +28,16 @@
 {
     if(self = [super init])
     {
-        qcFeedDataDict    = [NSMutableDictionary dictionary];
-        getLosersStkCodeArr = [NSMutableArray array];
-        getGainersStkCodeArr = [NSMutableArray array];
-        getActiveStkCodeArr = [NSMutableArray array];
-        watchListStkCodeArr = [NSMutableArray array];
-        remoteWatchlistStkCodeArr = [NSMutableArray array];
-        remoteWatchlistid = [NSMutableArray array];
-        remoteStockPrice = [NSMutableArray array];
-        
+        qcFeedDataDict    = [NSMutableDictionary dictionary];//Save each Stock data into a Dictionary.
+        getLosersStkCodeArr = [NSMutableArray array];//Market Movers - Losers Stock Array.
+        getGainersStkCodeArr = [NSMutableArray array];//Market Movers - Gainers Stocks Array.
+        getActiveStkCodeArr = [NSMutableArray array];//Market Movers - Active Stocks Array.
+        watchListStkCodeArr = [NSMutableArray array];//Local Watchlist Stock Code Array.
+        remoteWatchlistStkCodeArr = [NSMutableArray array];//Cloud Watchlist Stock Code Array.
+        remoteWatchlistid = [NSMutableArray array];//Cloud Watchlist Stock ID Array.
+        remoteStockPrice = [NSMutableArray array];//Cloud Watchlist Stock Price Array.
     }
     return self;
 }
-
 
 @end
