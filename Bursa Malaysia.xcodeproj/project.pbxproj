@@ -86,14 +86,14 @@
 			containerPortal = 800B1ACC1CDC512B00EA1C3D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 800B1AD31CDC512B00EA1C3D;
-			remoteInfo = "Yahoo Quotes";
+			remoteInfo = Bursa_Malaysia;
 		};
 		800B1AF91CDC512B00EA1C3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 800B1ACC1CDC512B00EA1C3D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 800B1AD31CDC512B00EA1C3D;
-			remoteInfo = "Yahoo Quotes";
+			remoteInfo = Bursa_Malaysia;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -197,11 +197,11 @@
 				80CEB5AB1CDDF7C6003F6368 /* StoreKit.framework in Frameworks */,
 				800B1B221CDC897C00EA1C3D /* Security.framework in Frameworks */,
 				80CEB5A91CDDF7A3003F6368 /* QuartzCore.framework in Frameworks */,
-				80CEB5A71CDDF799003F6368 /* CoreLocation.framework in Frameworks */,
 				804DDCE81CE04034004991D4 /* Bolts.framework in Frameworks */,
+				804DDCE91CE04034004991D4 /* Parse.framework in Frameworks */,
+				80CEB5A71CDDF799003F6368 /* CoreLocation.framework in Frameworks */,
 				80CEB5A51CDDF78F003F6368 /* CoreGraphics.framework in Frameworks */,
 				800B1B201CDC897600EA1C3D /* CFNetwork.framework in Frameworks */,
-				804DDCE91CE04034004991D4 /* Parse.framework in Frameworks */,
 				80CEB5A31CDDF77C003F6368 /* AudioToolbox.framework in Frameworks */,
 				800B1B241CDC898100EA1C3D /* Foundation.framework in Frameworks */,
 				800B1B1E1CDC896C00EA1C3D /* libicucore.tbd in Frameworks */,
@@ -262,7 +262,7 @@
 				800B1AD71CDC512B00EA1C3D /* Supporting Files */,
 			);
 			name = "Bursa Malaysia";
-			path = "Yahoo Quotes";
+			path = Bursa_Malaysia;
 			sourceTree = "<group>";
 		};
 		800B1AD71CDC512B00EA1C3D /* Supporting Files */ = {
@@ -292,7 +292,7 @@
 				800B1AF31CDC512B00EA1C3D /* Info.plist */,
 			);
 			name = "Bursa MalaysiaTests";
-			path = "Yahoo QuotesTests";
+			path = Bursa_MalaysiaTests;
 			sourceTree = "<group>";
 		};
 		800B1AFB1CDC512B00EA1C3D /* Bursa MalaysiaUITests */ = {
@@ -302,7 +302,7 @@
 				800B1AFE1CDC512B00EA1C3D /* Info.plist */,
 			);
 			name = "Bursa MalaysiaUITests";
-			path = "Yahoo QuotesUITests";
+			path = Bursa_MalaysiaUITests;
 			sourceTree = "<group>";
 		};
 		800B1B0A1CDC532F00EA1C3D /* Images */ = {
@@ -456,7 +456,7 @@
 			dependencies = (
 			);
 			name = "Bursa Malaysia";
-			productName = "Yahoo Quotes";
+			productName = Bursa_Malaysia;
 			productReference = 800B1AD41CDC512B00EA1C3D /* Bursa Malaysia.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -474,7 +474,7 @@
 				800B1AEF1CDC512B00EA1C3D /* PBXTargetDependency */,
 			);
 			name = "Bursa MalaysiaTests";
-			productName = "Yahoo QuotesTests";
+			productName = Bursa_MalaysiaTests;
 			productReference = 800B1AED1CDC512B00EA1C3D /* Bursa Malaysia.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -492,7 +492,7 @@
 				800B1AFA1CDC512B00EA1C3D /* PBXTargetDependency */,
 			);
 			name = "Bursa MalaysiaUITests";
-			productName = "Yahoo QuotesUITests";
+			productName = Bursa_MalaysiaUITests;
 			productReference = 800B1AF81CDC512B00EA1C3D /* Bursa Malaysia.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -767,16 +767,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
+					"$(PROJECT_DIR)/Bursa_Malaysia",
 				);
-				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				INFOPLIST_FILE = Bursa_Malaysia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
@@ -794,16 +787,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
-					"$(PROJECT_DIR)/Yahoo",
-					Quotes,
+					"$(PROJECT_DIR)/Bursa_Malaysia",
 				);
-				INFOPLIST_FILE = "Yahoo Quotes/Info.plist";
+				INFOPLIST_FILE = Bursa_Malaysia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
@@ -817,7 +803,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
+				INFOPLIST_FILE = Bursa_MalaysiaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
 				PRODUCT_NAME = "Bursa Malaysia";
@@ -829,7 +815,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Yahoo QuotesTests/Info.plist";
+				INFOPLIST_FILE = Bursa_MalaysiaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesTests";
 				PRODUCT_NAME = "Bursa Malaysia";
@@ -840,22 +826,22 @@
 		800B1B081CDC512B00EA1C3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
+				INFOPLIST_FILE = Bursa_MalaysiaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
 				PRODUCT_NAME = "Bursa Malaysia";
-				TEST_TARGET_NAME = "Yahoo Quotes";
+				TEST_TARGET_NAME = Bursa_Malaysia;
 			};
 			name = Debug;
 		};
 		800B1B091CDC512B00EA1C3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "Yahoo QuotesUITests/Info.plist";
+				INFOPLIST_FILE = Bursa_MalaysiaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SriRam.YahooQuotes.Yahoo-QuotesUITests";
 				PRODUCT_NAME = "Bursa Malaysia";
-				TEST_TARGET_NAME = "Yahoo Quotes";
+				TEST_TARGET_NAME = Bursa_Malaysia;
 			};
 			name = Release;
 		};
