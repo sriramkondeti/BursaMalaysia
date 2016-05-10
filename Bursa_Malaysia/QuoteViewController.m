@@ -242,6 +242,10 @@
     }
 }
 
+-(void) priceAlertBtnPressed:(stockTableDataViewCell *)cell
+{
+}
+
 -(void)checkPriceAlert
 {
     NSString *stkcode;

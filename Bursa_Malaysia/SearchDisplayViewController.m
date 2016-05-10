@@ -197,5 +197,8 @@
     }
 }
 
+-(void) priceAlertBtnPressed:(stockTableDataViewCell *)cell
+{
+}
 
 @end
