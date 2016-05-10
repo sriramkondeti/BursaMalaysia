@@ -775,7 +775,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
-				PROVISIONING_PROFILE = "7c4ad5ad-a88a-43ee-bc44-bc5596c803d5";
+				PROVISIONING_PROFILE = "d76ecc16-d619-4472-98dc-fb0d4b56a8c0";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -796,7 +796,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sriram.bursamalaysia;
 				PRODUCT_NAME = "Bursa Malaysia";
-				PROVISIONING_PROFILE = "29ef7d50-7535-4750-b6f4-034c3507a391";
+				PROVISIONING_PROFILE = "8e503c6b-51ba-4910-8c6e-48fe6dbeef18";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
